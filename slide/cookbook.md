@@ -52,7 +52,7 @@
 ---
 
 ## Cookbook(01-setup)
-.notes: git branch 01-setup && git add -A && git commit -m "Cookbook(01-setup)"
+.notes: git branch 01-setup && git checkout 01-setup && git add -A && git commit -m "Cookbook(01-setup)"
 
 参考 [快速入门](https://vuetifyjs.com/zh-Hans/getting-started/quick-start) 创建全新项目 或 引入到现存项目
 
