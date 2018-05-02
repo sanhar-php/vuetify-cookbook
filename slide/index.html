@@ -183,7 +183,7 @@
             <header><h2>Cookbook(01-setup)</h2></header>
             
             
-            <section><p class="notes">git branch 01-setup &amp;&amp; git add -A &amp;&amp; git commit -m "Cookbook(01-setup)"</p>
+            <section><p class="notes">git branch 01-setup &amp;&amp; git checkout 01-setup &amp;&amp; git add -A &amp;&amp; git commit -m "Cookbook(01-setup)"</p>
 <p>参考 <a href="https://vuetifyjs.com/zh-Hans/getting-started/quick-start">快速入门</a> 创建全新项目 或 引入到现存项目</p>
 <p><strong> 创建 vuetify-cookbook 项目 </strong></p>
 <p><code>$ vue init vuetifyjs/webpack vuetify-cookbook</code> //<em><a href="./img/cookbook-create-project.png">创建项目选用的参数</a></em></p>
@@ -215,19 +215,30 @@
       
       <!-- slide source: cookbook.md -->
       <div class="slide-wrapper">
-        <div class="slide slide-5">
+        <div class="slide has_code has_notes slide-5">
           <div class="inner">
             
-            <header><h2>Cookbook(02-baselie-layout)</h2></header>
+            <header><h2>Cookbook(02-baseline-layout)</h2></header>
             
             
-            <section><p><strong> 项目开发入门 </strong></p>
+            <section><p class="notes">git checkout -b 02-baseline-layout &amp;&amp; git add -A &amp;&amp; git commit -m "Cookbook(02-baseline-layout)"</p>
+<p><strong> 布局初步 </strong></p>
 <ul>
-<li>网站布局 <code>src/App.vue</code> &lt;= 替换<a href="https://github.com/vuetifyjs/vuetifyjs.com/blob/master/examples/layouts/baseline.vue">Baseline Layout</a> //认识基本布局：头部菜单/右侧导航栏/正文/页脚</li>
-<li>主题颜色 <code>src/main.js</code> &lt;= 设置主题颜色; <code>src/App.vue</code> &lt;= 颜色使用主题名称 //见下页代码</li>
-<li>动态菜单 <code>computed.menuItems</code>、<code>navigation-drawer &amp; toolbar: v-for</code></li>
-<li>登录验证</li>
-</ul></section>
+<li>认识基本布局：头部菜单/右侧导航栏/正文/页脚</li>
+</ul>
+<h2>默认应用程序标记</h2>
+<div class="highlight"><pre><span></span><span class="lineno"> 1 </span><span class="p">&lt;</span><span class="nt">v-app</span><span class="p">&gt;</span>
+<span class="lineno"> 2 </span>  <span class="p">&lt;</span><span class="nt">v-navigation-drawer</span> <span class="na">app</span><span class="p">&gt;&lt;/</span><span class="nt">v-navigation-drawer</span><span class="p">&gt;</span>
+<span class="lineno"> 3 </span>  <span class="p">&lt;</span><span class="nt">v-toolbar</span> <span class="na">app</span><span class="p">&gt;&lt;/</span><span class="nt">v-toolbar</span><span class="p">&gt;</span>
+<span class="lineno"> 4 </span>  <span class="p">&lt;</span><span class="nt">v-content</span><span class="p">&gt;</span>
+<span class="lineno"> 5 </span>    <span class="p">&lt;</span><span class="nt">v-container</span> <span class="na">fluid</span><span class="p">&gt;</span>
+<span class="lineno"> 6 </span>      <span class="p">&lt;</span><span class="nt">router-view</span><span class="p">&gt;&lt;/</span><span class="nt">router-view</span><span class="p">&gt;</span>
+<span class="lineno"> 7 </span>    <span class="p">&lt;/</span><span class="nt">v-container</span><span class="p">&gt;</span>
+<span class="lineno"> 8 </span>  <span class="p">&lt;/</span><span class="nt">v-content</span><span class="p">&gt;</span>
+<span class="lineno"> 9 </span>  <span class="p">&lt;</span><span class="nt">v-footer</span> <span class="na">app</span> <span class="na">color</span><span class="o">=</span><span class="s">&quot;secondary&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">v-footer</span><span class="p">&gt;</span>
+<span class="lineno">10 </span><span class="p">&lt;/</span><span class="nt">v-app</span><span class="p">&gt;</span>
+</pre></div>
+</section>
             
           </div>
           <div class="presenter_notes">
@@ -254,7 +265,7 @@
         <div class="slide has_code slide-6">
           <div class="inner">
             
-            <header><h2>主题颜色设置</h2></header>
+            <header><h2>主题颜色设置与使用</h2></header>
             
             
             <section><div class="highlight"><pre><span></span><span class="lineno"> 1 </span><span class="c1">// src/main.js</span>
@@ -269,9 +280,10 @@
 <span class="lineno">10 </span><span class="c1">//line 29</span>
 <span class="lineno">11 </span><span class="o">&lt;</span><span class="nx">v</span><span class="o">-</span><span class="nx">toolbar</span> <span class="nx">color</span><span class="o">=</span><span class="s2">&quot;primary&quot;</span> <span class="nx">dark</span> <span class="nx">fixed</span> <span class="nx">app</span><span class="o">&gt;</span>
 <span class="lineno">12 </span><span class="c1">//line 57</span>
-<span class="lineno">13 </span><span class="o">&lt;</span><span class="nx">v</span><span class="o">-</span><span class="nx">footer</span> <span class="nx">color</span><span class="o">=</span><span class="s2">&quot;primary&quot;</span> <span class="nx">app</span><span class="o">&gt;</span>
+<span class="lineno">13 </span><span class="o">&lt;</span><span class="nx">v</span><span class="o">-</span><span class="nx">footer</span> <span class="nx">color</span><span class="o">=</span><span class="s2">&quot;accent&quot;</span> <span class="nx">app</span><span class="o">&gt;</span>
 </pre></div>
-</section>
+
+<p>使用主题颜色 <code>src/main.js</code> &lt;= 设置主题颜色; <code>src/App.vue</code> &lt;= 颜色使用主题名称</p></section>
             
           </div>
           <div class="presenter_notes">
@@ -295,23 +307,16 @@
       
       <!-- slide source: cookbook.md -->
       <div class="slide-wrapper">
-        <div class="slide has_notes slide-7">
+        <div class="slide slide-7">
           <div class="inner">
             
-            <header><h2>Vuetify 项目实践</h2></header>
+            <header><h2>布局实战</h2></header>
             
             
-            <section><p class="notes">持续更新</p>
-<h3>1. Coding</h3>
+            <section><p><strong> 跟我一起敲代码 </strong></p>
 <ul>
-<li>VSCode</li>
-<li>手写代码</li>
-</ul>
-<h3>2. <a href="https://vuetifyjs.com/zh-Hans/layout/pre-defined">预定义布局</a> 练习</h3>
-<ul>
-<li><a href="https://vuetifyjs.com/zh-Hans/examples/layouts/googleContacts">googleContacts</a></li>
-</ul>
-<h3>3. 前端单元测试</h3></section>
+<li>网站布局 <code>src/App.vue</code> &lt;= 替换<a href="https://github.com/vuetifyjs/vuetifyjs.com/blob/master/examples/layouts/baseline.vue">Baseline Layout</a></li>
+</ul></section>
             
           </div>
           <div class="presenter_notes">
@@ -385,17 +390,17 @@
         </tr>
         
         <tr id="toc-row-5" class="sub">
-          <th><a href="#slide5">Cookbook(02-baselie-layout)</a></th>
+          <th><a href="#slide5">Cookbook(02-baseline-layout)</a></th>
           <td><a href="#slide5">5</a></td>
         </tr>
         
         <tr id="toc-row-6" class="sub">
-          <th><a href="#slide6">主题颜色设置</a></th>
+          <th><a href="#slide6">主题颜色设置与使用</a></th>
           <td><a href="#slide6">6</a></td>
         </tr>
         
         <tr id="toc-row-7" class="sub">
-          <th><a href="#slide7">Vuetify 项目实践</a></th>
+          <th><a href="#slide7">布局实战</a></th>
           <td><a href="#slide7">7</a></td>
         </tr>
         

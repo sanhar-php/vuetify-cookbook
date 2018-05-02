@@ -52,7 +52,7 @@
 ---
 
 ## Cookbook(01-setup)
-.notes: git branch 01-setup && git add -A && git commit -m "Cookbook(01-setup)"
+.notes: git branch 01-setup && git checkout 01-setup && git add -A && git commit -m "Cookbook(01-setup)"
 
 参考 [快速入门](https://vuetifyjs.com/zh-Hans/getting-started/quick-start) 创建全新项目 或 引入到现存项目
 
@@ -69,3 +69,58 @@
 ** 浏览器打开**
 
 [http://localhost:8080](./img/cookbook-localhost-8080.png)
+
+---
+
+## Cookbook(02-baseline-layout)
+.notes: git checkout -b 02-baseline-layout && git add -A && git commit -m "Cookbook(02-baseline-layout)"
+
+** 布局初步 **
+
+* 认识基本布局：头部菜单/右侧导航栏/正文/页脚
+
+## 默认应用程序标记
+
+    !html
+    <v-app>
+      <v-navigation-drawer app></v-navigation-drawer>
+      <v-toolbar app></v-toolbar>
+      <v-content>
+        <v-container fluid>
+          <router-view></router-view>
+        </v-container>
+      </v-content>
+      <v-footer app color="secondary"></v-footer>
+    </v-app>
+
+---
+## 主题颜色设置与使用
+
+    !javascript
+    // src/main.js
+    import colors from 'vuetify/es5/util/colors'
+    Vue.use(Vuetify, {
+      theme: {
+        primary: colors.blue.darken2,
+        secondary: colors.grey.lighten2,
+    ...
+
+    // src/App.vue
+    //line 29
+    <v-toolbar color="primary" dark fixed app>
+    //line 57
+    <v-footer color="accent" app>
+
+* `src/main.js` <= 设置主题颜色
+* `src/App.vue` <= 颜色使用主题名称
+* [Material 色彩表](https://vuetifyjs.com/zh-Hans/style/colors)
+
+---
+
+## 布局实战
+
+** 跟我一起敲代码 **
+
+* 网站布局 `src/App.vue` <= 替换[Baseline Layout](https://github.com/vuetifyjs/vuetifyjs.com/blob/master/examples/layouts/baseline.vue)
+
+---
