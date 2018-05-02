@@ -117,10 +117,22 @@
 
 ---
 
-## 布局实战
+## 布局实战 - 跟我一起敲代码
 
-** 跟我一起敲代码 **
+网站布局 `src/App.vue` <= 替换[Baseline Layout](https://github.com/vuetifyjs/vuetifyjs.com/blob/master/examples/layouts/baseline.vue)
 
-* 网站布局 `src/App.vue` <= 替换[Baseline Layout](https://github.com/vuetifyjs/vuetifyjs.com/blob/master/examples/layouts/baseline.vue)
+### 导航: `导航抽屉` 下面写 `列表`
 
+* 组件之[导航抽屉](https://vuetifyjs.com/en/components/navigation-drawers)
+* 组件之[列表](https://vuetifyjs.com/en/components/lists) list: [tile: (action.icon, content.title), tile:...]
+* [图标](https://material.io/icons/)
+
+### 工具栏
+* 组件之[工具栏](https://vuetifyjs.com/en/components/toolbars) toolbar: (side-icon@click.stop, title)
+* Vue.js之[事件修饰符](https://cn.vuejs.org/v2/guide/events.html)
+
+### 页脚
+* 组件之[页脚](https://vuetifyjs.com/en/components/footer)
+* Styles/[colors](https://vuetifyjs.com/en/style/colors) `<span class="primary--text">&copy; 2018</span>`
+* 布局之[文本对齐](https://vuetifyjs.com/zh-Hans/layout/alignment) text-xs-center
 ---
