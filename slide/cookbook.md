@@ -73,7 +73,7 @@
 ---
 
 ## Cookbook(02-baseline-layout)
-.notes: git checkout -b 02-baseline-layout && git add -A && git commit -m "Cookbook(02-baseline-layout)"
+.notes: git checkout -b 02-baseline-layout && git add -A && git commit -m "Cookbook(02-baseline-layout)" && git push origin 02-baseline-layout
 
 ** 布局初步 **
 
