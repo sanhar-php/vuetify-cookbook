@@ -135,10 +135,10 @@
 * 组件之[页脚](https://vuetifyjs.com/en/components/footer)
 * Styles/[colors](https://vuetifyjs.com/en/style/colors) `<span class="primary--text">&copy; 2018</span>`
 * 布局之[文本对齐](https://vuetifyjs.com/zh-Hans/layout/alignment) text-xs-center
+
 ---
-
 ## Cookbook(02.1-谷歌桌面布局)
-
+.notes: git checkout -b 02.1-google-contacts-layout && git add -A && git commit -m "Cookbook(02.1-google-contacts-layout)" && git push origin 02.1-google-contacts-layout
 * 网站布局 `src/App.vue` <= 替换[GoogleContacts Layout](https://github.com/vuetifyjs/vuetifyjs.com/blob/master/examples/layouts/googleContacts.vue)
 * [显示效果](https://vuetifyjs.com/zh-Hans/examples/layouts/googleContacts)
 
@@ -155,4 +155,26 @@
     <link href='https://cdn.materialdesignicons.com/2.3.54/css/materialdesignicons.min.css' rel="stylesheet">
 
 * Material Design Icons [Getting Started](https://materialdesignicons.com/bootstrap):  在 `index.html` 中引入css， icon加前缀`mdi`，例如 `<v-icon>mdi-apple</v-icon>`
+
 ---
+## 优化代码
+
+### 工具栏
+
+    !javascript
+    <v-toolbar
+      color="primary"
+      :clipped-left="$vuetify.breakpoint.lgAndUp"
+      app
+    >
+
+### 导航栏默认显示
+
+    !javascript
+    <v-navigation-drawer
+      dark
+      floating
+      :clipped="$vuetify.breakpoint.lgAndUp"
+      v-model="drawer"
+      app
+    >

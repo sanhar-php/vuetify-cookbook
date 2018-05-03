@@ -83,7 +83,7 @@
             </aside>
             
             <aside class="page_number">
-              1/8
+              1/9
             </aside>
           </footer>
         </div>
@@ -125,7 +125,7 @@
             </aside>
             
             <aside class="page_number">
-              2/8
+              2/9
             </aside>
           </footer>
         </div>
@@ -169,7 +169,7 @@
             </aside>
             
             <aside class="page_number">
-              3/8
+              3/9
             </aside>
           </footer>
         </div>
@@ -207,7 +207,7 @@
             </aside>
             
             <aside class="page_number">
-              4/8
+              4/9
             </aside>
           </footer>
         </div>
@@ -254,7 +254,7 @@
             </aside>
             
             <aside class="page_number">
-              5/8
+              5/9
             </aside>
           </footer>
         </div>
@@ -303,7 +303,7 @@
             </aside>
             
             <aside class="page_number">
-              6/8
+              6/9
             </aside>
           </footer>
         </div>
@@ -350,7 +350,7 @@
             </aside>
             
             <aside class="page_number">
-              7/8
+              7/9
             </aside>
           </footer>
         </div>
@@ -364,10 +364,9 @@
             <header><h2>Cookbook(02.1-谷歌桌面布局)</h2></header>
             
             
-            <section><ul>
-<li>网站布局 <code>src/App.vue</code> &lt;= 替换<a href="https://github.com/vuetifyjs/vuetifyjs.com/blob/master/examples/layouts/googleContacts.vue">GoogleContacts Layout</a></li>
-<li><a href="https://vuetifyjs.com/zh-Hans/examples/layouts/googleContacts">显示效果</a></li>
-</ul>
+            <section><p>.notes: git checkout -b 02.1-google-contacts-layout &amp;&amp; git add -A &amp;&amp; git commit -m "Cookbook(02.1-google-contacts-layout)" &amp;&amp; git push origin 02.1-google-contacts-layout
+<em> 网站布局 <code>src/App.vue</code> &lt;= 替换<a href="https://github.com/vuetifyjs/vuetifyjs.com/blob/master/examples/layouts/googleContacts.vue">GoogleContacts Layout</a>
+</em> <a href="https://vuetifyjs.com/zh-Hans/examples/layouts/googleContacts">显示效果</a></p>
 <h3>导航: <code>导航抽屉</code> 下面写 <code>列表</code></h3>
 <ul>
 <li>组件之<a href="https://vuetifyjs.com/en/components/navigation-drawers">导航抽屉</a></li>
@@ -379,7 +378,9 @@
 <div class="highlight"><pre><span></span><span class="lineno">1 </span><span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&#39;https://cdn.materialdesignicons.com/2.3.54/css/materialdesignicons.min.css&#39;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span><span class="p">&gt;</span>
 </pre></div>
 
-<h2>* Material Design Icons <a href="https://materialdesignicons.com/bootstrap">Getting Started</a>:  在 <code>index.html</code> 中引入css， icon加前缀<code>mdi</code>，例如 <code>&lt;v-icon&gt;mdi-apple&lt;/v-icon&gt;</code></h2></section>
+<ul>
+<li>Material Design Icons <a href="https://materialdesignicons.com/bootstrap">Getting Started</a>:  在 <code>index.html</code> 中引入css， icon加前缀<code>mdi</code>，例如 <code>&lt;v-icon&gt;mdi-apple&lt;/v-icon&gt;</code></li>
+</ul></section>
             
           </div>
           <div class="presenter_notes">
@@ -395,7 +396,54 @@
             </aside>
             
             <aside class="page_number">
-              8/8
+              8/9
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: cookbook.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code slide-9">
+          <div class="inner">
+            
+            <header><h2>优化代码</h2></header>
+            
+            
+            <section><h3>工具栏</h3>
+<div class="highlight"><pre><span></span><span class="lineno">1 </span><span class="o">&lt;</span><span class="nx">v</span><span class="o">-</span><span class="nx">toolbar</span>
+<span class="lineno">2 </span>  <span class="nx">app</span>
+<span class="lineno">3 </span>  <span class="nx">color</span><span class="o">=</span><span class="s2">&quot;primary&quot;</span>
+<span class="lineno">4 </span>  <span class="o">:</span><span class="nx">clipped</span><span class="o">-</span><span class="nx">left</span><span class="o">=</span><span class="s2">&quot;$vuetify.breakpoint.lgAndUp&quot;</span>
+<span class="lineno">5 </span>  <span class="nx">fixed</span>
+<span class="lineno">6 </span><span class="o">&gt;</span>
+</pre></div>
+
+<h3>导航栏默认显示</h3>
+<div class="highlight"><pre><span></span><span class="lineno">1 </span><span class="o">&lt;</span><span class="nx">v</span><span class="o">-</span><span class="nx">navigation</span><span class="o">-</span><span class="nx">drawer</span>
+<span class="lineno">2 </span>  <span class="nx">fixed</span>
+<span class="lineno">3 </span>  <span class="o">:</span><span class="nx">clipped</span><span class="o">=</span><span class="s2">&quot;$vuetify.breakpoint.lgAndUp&quot;</span>
+<span class="lineno">4 </span>  <span class="nx">v</span><span class="o">-</span><span class="nx">model</span><span class="o">=</span><span class="s2">&quot;drawer&quot;</span>
+<span class="lineno">5 </span>  <span class="nx">app</span>
+<span class="lineno">6 </span><span class="o">&gt;</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="cookbook.md">cookbook.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              9/9
             </aside>
           </footer>
         </div>
@@ -448,6 +496,11 @@
         <tr id="toc-row-8" class="sub">
           <th><a href="#slide8">Cookbook(02.1-谷歌桌面布局)</a></th>
           <td><a href="#slide8">8</a></td>
+        </tr>
+        
+        <tr id="toc-row-9" class="sub">
+          <th><a href="#slide9">优化代码</a></th>
+          <td><a href="#slide9">9</a></td>
         </tr>
         
       
