@@ -10,12 +10,16 @@ import {
   VFooter,
   VList,
   VBtn,
+  VCard,
   VIcon,
   VGrid,
+  VSubheader,
+  VTextField,
   VToolbar,
   transitions
 } from 'vuetify'
 import '../node_modules/vuetify/src/stylus/app.styl'
+import colors from 'vuetify/es5/util/colors'
 
 Vue.use(Vuetify, {
   components: {
@@ -24,15 +28,18 @@ Vue.use(Vuetify, {
     VFooter,
     VList,
     VBtn,
+    VCard,
     VIcon,
     VGrid,
+    VSubheader,
+    VTextField,
     VToolbar,
     transitions
   },
   theme: {
-    primary: '#ee44aa',
-    secondary: '#424242',
-    accent: '#82B1FF',
+    primary: colors.blue.darken2,
+    secondary: colors.grey.lighten2,
+    accent: colors.blue.lighten2,
     error: '#FF5252',
     info: '#2196F3',
     success: '#4CAF50',

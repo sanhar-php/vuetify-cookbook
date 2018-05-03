@@ -52,7 +52,7 @@
 ---
 
 ## Cookbook(01-setup)
-.notes: git branch 01-setup && git add -A && git commit -m "Cookbook(01-setup)"
+.notes: git branch 01-setup && git checkout 01-setup && git add -A && git commit -m "Cookbook(01-setup)"
 
 参考 [快速入门](https://vuetifyjs.com/zh-Hans/getting-started/quick-start) 创建全新项目 或 引入到现存项目
 
@@ -69,3 +69,90 @@
 ** 浏览器打开**
 
 [http://localhost:8080](./img/cookbook-localhost-8080.png)
+
+---
+
+## Cookbook(02-baseline-layout)
+.notes: git checkout -b 02-baseline-layout && git add -A && git commit -m "Cookbook(02-baseline-layout)" && git push origin 02-baseline-layout
+
+** 布局初步 **
+
+* 认识基本布局：头部菜单/右侧导航栏/正文/页脚
+
+## 默认应用程序标记
+
+    !html
+    <v-app>
+      <v-navigation-drawer app></v-navigation-drawer>
+      <v-toolbar app></v-toolbar>
+      <v-content>
+        <v-container fluid>
+          <router-view></router-view>
+        </v-container>
+      </v-content>
+      <v-footer app color="secondary"></v-footer>
+    </v-app>
+
+---
+## 主题颜色设置与使用
+
+    !javascript
+    // src/main.js
+    import colors from 'vuetify/es5/util/colors'
+    Vue.use(Vuetify, {
+      theme: {
+        primary: colors.blue.darken2,
+        secondary: colors.grey.lighten2,
+    ...
+
+    // src/App.vue
+    //line 29
+    <v-toolbar color="primary" dark fixed app>
+    //line 57
+    <v-footer color="accent" app>
+
+* `src/main.js` <= 设置主题颜色
+* `src/App.vue` <= 颜色使用主题名称
+* [Material 色彩表](https://vuetifyjs.com/zh-Hans/style/colors)
+
+---
+
+## 布局实战 - 跟我一起敲代码
+
+网站布局 `src/App.vue` <= 替换[Baseline Layout](https://github.com/vuetifyjs/vuetifyjs.com/blob/master/examples/layouts/baseline.vue)
+
+### 导航: `导航抽屉` 下面写 `列表`
+
+* 组件之[导航抽屉](https://vuetifyjs.com/en/components/navigation-drawers)
+* 组件之[列表](https://vuetifyjs.com/en/components/lists) list: [tile: (action.icon, content.title), tile:...]
+* [图标](https://material.io/icons/) home/contact_mail
+
+### 工具栏
+* 组件之[工具栏](https://vuetifyjs.com/en/components/toolbars) toolbar: (side-icon@click.stop, title)
+* Vue.js之[事件修饰符](https://cn.vuejs.org/v2/guide/events.html)
+
+### 页脚
+* 组件之[页脚](https://vuetifyjs.com/en/components/footer)
+* Styles/[colors](https://vuetifyjs.com/en/style/colors) `<span class="primary--text">&copy; 2018</span>`
+* 布局之[文本对齐](https://vuetifyjs.com/zh-Hans/layout/alignment) text-xs-center
+---
+
+## Cookbook(02.1-谷歌桌面布局)
+
+* 网站布局 `src/App.vue` <= 替换[GoogleContacts Layout](https://github.com/vuetifyjs/vuetifyjs.com/blob/master/examples/layouts/googleContacts.vue)
+* [显示效果](https://vuetifyjs.com/zh-Hans/examples/layouts/googleContacts)
+
+### 导航: `导航抽屉` 下面写 `列表`
+
+* 组件之[导航抽屉](https://vuetifyjs.com/en/components/navigation-drawers)
+* 组件之[列表](https://vuetifyjs.com/en/components/lists) list: [layout: [flex.subhead,...], list-group: [tile.content.title, [tile: (action.icon, content.title),...]], tile: (action.icon, content.title), tile:...]
+* 组件之[副标题](https://vuetifyjs.com/en/components/subheaders)
+* [图标](https://material.io/icons/) android
+
+### 图标进阶
+
+    !html
+    <link href='https://cdn.materialdesignicons.com/2.3.54/css/materialdesignicons.min.css' rel="stylesheet">
+
+* Material Design Icons [Getting Started](https://materialdesignicons.com/bootstrap):  在 `index.html` 中引入css， icon加前缀`mdi`，例如 `<v-icon>mdi-apple</v-icon>`
+---
