@@ -2,7 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import router from './router'
+import router from './router.js'
 import {
   Vuetify,
   VApp,
@@ -11,6 +11,7 @@ import {
   VList,
   VBtn,
   VCard,
+  VDataTable,
   VIcon,
   VGrid,
   VSubheader,
@@ -29,6 +30,7 @@ Vue.use(Vuetify, {
     VList,
     VBtn,
     VCard,
+    VDataTable,
     VIcon,
     VGrid,
     VSubheader,

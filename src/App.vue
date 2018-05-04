@@ -1,7 +1,9 @@
 <template>
   <v-app>
     <v-navigation-drawer
-      fixed
+      dark
+      floating
+      :clipped="$vuetify.breakpoint.lgAndUp"
       v-model="drawer"
       app
     >
@@ -59,10 +61,19 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar app color="primary">
-      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+    <v-toolbar
+      color="primary"
+      :clipped-left="$vuetify.breakpoint.lgAndUp"
+      app
+    >
+      <v-toolbar-title style="width: 300px" class="ml-0 pl-3">
+        <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+        <span class="hidden-sm-and-down">Backend Console</span>
+      </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-toolbar-title>Contact</v-toolbar-title>
+      <v-btn icon>
+        <v-icon>apps</v-icon>
+      </v-btn>
     </v-toolbar>
     <v-content>
       <v-container fluid>
@@ -85,9 +96,3 @@ export default {
   }
 }
 </script>
-
-<codepen-resources lang="json">
-  {
-    "js": ["https://use.fontawesome.com/releases/v5.0.11/js/all.js"]
-  }
-</codepen-resources>
