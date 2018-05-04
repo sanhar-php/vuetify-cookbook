@@ -91,8 +91,10 @@ export default {
   data () {
     return {
       drawer: true,
-      group: true
-    }
+      group: true,
+      // 菜单对象()数组
+      menuItems: []
+    };
   }
-}
+};
 </script>

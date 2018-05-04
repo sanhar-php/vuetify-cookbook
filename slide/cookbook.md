@@ -14,6 +14,29 @@
 
 ---
 
+## UI Components
+
+    +--------------+----------------------+
+    |              | Vuetify    // cross  |
+    |              | Framework7 // mobile |
+    | UI Components| Onsen-UI   // mobile |
+    |              | Element    // desktop|
+    |              | Quasar     // hybrid |
+    +--------------+----------------------+
+    | Frontend     | Vue.js               |
+    |              |                      |
+    |--------------+----------------------+
+    |              | Express              |
+    | Backend      | sequelize            |
+    |              | mysql2               |
+    +--------------+----------------------+
+    |              | Webpack 3            |
+    |   CI         | Jest                 |
+    |              |                      |
+    +--------------+----------------------+
+
+---
+
 ## Why Vuetify?
 
 **Material Design**
@@ -90,8 +113,10 @@
           <router-view></router-view>
         </v-container>
       </v-content>
-      <v-footer app color="secondary"></v-footer>
+      <v-footer app class="secondary"></v-footer>
     </v-app>
+
+把上面的内容替换到 `src/App.vue` 中
 
 ---
 ## 主题颜色设置与使用
@@ -112,14 +137,15 @@
     <v-footer color="accent" app>
 
 * `src/main.js` <= 设置主题颜色
-* `src/App.vue` <= 颜色使用主题名称
+* `src/App.vue` <= 颜色使用主题中的颜色名称(primary, secondary,...)
 * [Material 色彩表](https://vuetifyjs.com/zh-Hans/style/colors)
 
 ---
 
 ## 布局实战 - 跟我一起敲代码
 
-网站布局 `src/App.vue` <= 替换[Baseline Layout](https://github.com/vuetifyjs/vuetifyjs.com/blob/master/examples/layouts/baseline.vue)
+* 网站布局 `src/App.vue` <= 替换[Baseline Layout](https://github.com/vuetifyjs/vuetifyjs.com/blob/master/examples/layouts/baseline.vue)
+* [显示效果](https://vuetifyjs.com/zh-Hans/examples/layouts/baseline) / [优化效果](./img/cookbook-02-wide-window.png)
 
 ### 导航: `导航抽屉` 下面写 `列表`
 
@@ -131,14 +157,36 @@
 * 组件之[工具栏](https://vuetifyjs.com/en/components/toolbars) toolbar: (side-icon@click.stop, title)
 * Vue.js之[事件修饰符](https://cn.vuejs.org/v2/guide/events.html)
 
+---
+## 布局实战 - 跟我一起敲代码(续)
+
 ### 页脚
 * 组件之[页脚](https://vuetifyjs.com/en/components/footer)
 * Styles/[colors](https://vuetifyjs.com/en/style/colors) `<span class="primary--text">&copy; 2018</span>`
 * 布局之[文本对齐](https://vuetifyjs.com/zh-Hans/layout/alignment) text-xs-center
 
+### 导航抽屉出现在工具栏下方(navigation-drawer.clipped)
+
+    !javascript
+    <v-navigation-drawer
+      floating
+      :clipped="$vuetify.breakpoint.lgAndUp"
+      v-model="drawer"
+      app
+    >
+
+### 导航抽屉的左侧被工具栏截去(toolbar.clipped-left)
+
+    !javascript
+    <v-toolbar
+      class="primary"
+      :clipped-left="$vuetify.breakpoint.lgAndUp"
+      app
+    >
+
 ---
-## Cookbook(02.1-谷歌桌面布局)
-.notes: git checkout -b 02.1-google-contacts-layout && git add -A && git commit -m "Cookbook(02.1-google-contacts-layout)" && git push origin 02.1-google-contacts-layout
+## Cookbook(03-谷歌桌面布局)
+.notes: git checkout -b 03-google-contacts-layout && git add -A && git commit -m "Cookbook(03-google-contacts-layout)" && git push origin 03-google-contacts-layout
 
 * 网站布局 `src/App.vue` <= 替换[GoogleContacts Layout](https://github.com/vuetifyjs/vuetifyjs.com/blob/master/examples/layouts/googleContacts.vue)
 * [显示效果](https://vuetifyjs.com/zh-Hans/examples/layouts/googleContacts)
@@ -158,33 +206,26 @@
 * Material Design Icons [Getting Started](https://materialdesignicons.com/bootstrap):  在 `index.html` 中引入css， icon加前缀`mdi`，例如 `<v-icon>mdi-apple</v-icon>`
 
 ---
-## 优化代码
 
-### 工具栏
-
-    !javascript
-    <v-toolbar
-      color="primary"
-      :clipped-left="$vuetify.breakpoint.lgAndUp"
-      app
-    >
-
-### 导航栏默认显示
-
-    !javascript
-    <v-navigation-drawer
-      dark
-      floating
-      :clipped="$vuetify.breakpoint.lgAndUp"
-      v-model="drawer"
-      app
-    >
-
----
-
-## Cookbook(03-menu-model)
-.notes: git checkout -b 02-baseline-layout && git add -A && git commit -m "Cookbook(02-baseline-layout)" && git push origin 02-baseline-layout
+## Cookbook(04-finish-layout)
+.notes: git checkout -b 04-finish-layout && git add -A && git commit -m "Cookbook(04-finish-layout)" && git push origin 04-finish-layout
 
 在这一课中，我们将使用v-model加载菜单。为了实现页面的交互，我们会新建几个页面(.vue)，还会修改路由设置(router.js)
 
-### src/router.js
+[展示效果]
+
+修改内容
+
+* 菜单对象和展示 `src/App.vue`
+* 添加页面 `src/components/`中的 DataTable.vue, 
+* 路由设置 `src/router.js`
+
+---
+
+## 4.1 菜单对象和展示
+
+1. `<script>` 中添加 menuItems
+2. v-list-tile 中添加 v-for
+3. v-btn 中添加 v-for
+
+## 4.2 添加页面
