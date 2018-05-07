@@ -14,6 +14,29 @@
 
 ---
 
+## UI Components
+
+    +--------------+----------------------+
+    |              | Vuetify    // cross  |
+    |              | Framework7 // mobile |
+    | UI Components| Onsen-UI   // mobile |
+    |              | Element    // desktop|
+    |              | Quasar     // hybrid |
+    +--------------+----------------------+
+    | Frontend     | Vue.js               |
+    |              |                      |
+    |--------------+----------------------+
+    |              | Express              |
+    | Backend      | sequelize            |
+    |              | mysql2               |
+    +--------------+----------------------+
+    |              | Webpack 3            |
+    |   CI         | Jest                 |
+    |              |                      |
+    +--------------+----------------------+
+
+---
+
 ## Why Vuetify?
 
 **Material Design**
@@ -66,6 +89,16 @@
 
   `npm i webpack-dev-server --save-dev` //添加遗漏的插件
 
-** 浏览器打开**
+** 浏览器打开 **
 
 [http://localhost:8080](./img/cookbook-localhost-8080.png)
+
+** 第一次检出项目 **
+
+.notes: git checkout 01-setup
+
+  `git clone http://172.16.100.130/gerrit/web/vuetify-cookbook`
+
+  `cnpm i`
+
+  `npm run dev`
