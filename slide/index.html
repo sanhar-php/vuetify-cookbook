@@ -83,7 +83,7 @@
             </aside>
             
             <aside class="page_number">
-              1/10
+              1/13
             </aside>
           </footer>
         </div>
@@ -131,7 +131,7 @@
             </aside>
             
             <aside class="page_number">
-              2/10
+              2/13
             </aside>
           </footer>
         </div>
@@ -173,7 +173,7 @@
             </aside>
             
             <aside class="page_number">
-              3/10
+              3/13
             </aside>
           </footer>
         </div>
@@ -217,7 +217,7 @@
             </aside>
             
             <aside class="page_number">
-              4/10
+              4/13
             </aside>
           </footer>
         </div>
@@ -238,8 +238,13 @@
 <p><strong> 启动项目 </strong></p>
 <p><code>npm run dev</code></p>
 <p><code>npm i webpack-dev-server --save-dev</code> //添加遗漏的插件</p>
-<p><strong> 浏览器打开</strong></p>
-<p><a href="./img/cookbook-localhost-8080.png">http://localhost:8080</a></p></section>
+<p><strong> 浏览器打开 </strong></p>
+<p><a href="./img/cookbook-localhost-8080.png">http://localhost:8080</a></p>
+<p><strong> 第一次检出项目 </strong></p>
+<p class="notes">git checkout 01-setup</p>
+<p><code>git clone http://172.16.100.130/gerrit/web/vuetify-cookbook</code></p>
+<p><code>cnpm i</code></p>
+<p><code>npm run dev</code></p></section>
             
           </div>
           <div class="presenter_notes">
@@ -255,7 +260,7 @@
             </aside>
             
             <aside class="page_number">
-              5/10
+              5/13
             </aside>
           </footer>
         </div>
@@ -303,7 +308,7 @@
             </aside>
             
             <aside class="page_number">
-              6/10
+              6/13
             </aside>
           </footer>
         </div>
@@ -352,7 +357,7 @@
             </aside>
             
             <aside class="page_number">
-              7/10
+              7/13
             </aside>
           </footer>
         </div>
@@ -368,7 +373,7 @@
             
             <section><ul>
 <li>网站布局 <code>src/App.vue</code> &lt;= 替换<a href="https://github.com/vuetifyjs/vuetifyjs.com/blob/master/examples/layouts/baseline.vue">Baseline Layout</a></li>
-<li><a href="https://vuetifyjs.com/zh-Hans/examples/layouts/baseline">显示效果</a> / <a href="./img/cookbook-02-wide-window.png">优化效果</a></li>
+<li><a href="https://vuetifyjs.com/zh-Hans/examples/layouts/baseline">基线布局效果</a> / <a href="./img/cookbook-02-wide-window.png">优化布局效果</a></li>
 </ul>
 <h3>导航: <code>导航抽屉</code> 下面写 <code>列表</code></h3>
 <ul>
@@ -396,7 +401,7 @@
             </aside>
             
             <aside class="page_number">
-              8/10
+              8/13
             </aside>
           </footer>
         </div>
@@ -448,7 +453,7 @@
             </aside>
             
             <aside class="page_number">
-              9/10
+              9/13
             </aside>
           </footer>
         </div>
@@ -456,7 +461,7 @@
       
       <!-- slide source: cookbook.md -->
       <div class="slide-wrapper">
-        <div class="slide has_code has_notes slide-10">
+        <div class="slide has_notes slide-10">
           <div class="inner">
             
             <header><h2>Cookbook(03-谷歌桌面布局)</h2></header>
@@ -465,21 +470,14 @@
             <section><p class="notes">git checkout -b 03-google-contacts-layout &amp;&amp; git add -A &amp;&amp; git commit -m "Cookbook(03-google-contacts-layout)" &amp;&amp; git push origin 03-google-contacts-layout</p>
 <ul>
 <li>网站布局 <code>src/App.vue</code> &lt;= 替换<a href="https://github.com/vuetifyjs/vuetifyjs.com/blob/master/examples/layouts/googleContacts.vue">GoogleContacts Layout</a></li>
-<li><a href="https://vuetifyjs.com/zh-Hans/examples/layouts/googleContacts">显示效果</a></li>
+<li><a href="https://vuetifyjs.com/zh-Hans/examples/layouts/googleContacts">谷歌联系人布局效果</a> / <a href="./img/cookbook-03-wide-window.png">编码布局效果</a></li>
 </ul>
 <h3>导航: <code>导航抽屉</code> 下面写 <code>列表</code></h3>
 <ul>
 <li>组件之<a href="https://vuetifyjs.com/en/components/navigation-drawers">导航抽屉</a></li>
-<li>组件之<a href="https://vuetifyjs.com/en/components/lists">列表</a> list: [layout: [flex.subhead,...], list-group: [tile.content.title, [tile: (action.icon, content.title),...]], tile: (action.icon, content.title), tile:...]</li>
+<li>组件之<a href="https://vuetifyjs.com/en/components/lists">列表</a> list: [layout: [flex.subhead,...], list-group: [tile.content.title, [tile: (action.icon, content.title),...]], tile: (action.icon, content.title), tile:...] <a href="./img/cookbook-03-list-comment.png">列表注释</a></li>
 <li>组件之<a href="https://vuetifyjs.com/en/components/subheaders">副标题</a></li>
-<li><a href="https://material.io/icons/">图标</a> android</li>
-</ul>
-<h3>图标进阶</h3>
-<div class="highlight"><pre><span></span><span class="lineno">1 </span><span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&#39;https://cdn.materialdesignicons.com/2.3.54/css/materialdesignicons.min.css&#39;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span><span class="p">&gt;</span>
-</pre></div>
-
-<ul>
-<li>Material Design Icons <a href="https://materialdesignicons.com/bootstrap">Getting Started</a>:  在 <code>index.html</code> 中引入css， icon加前缀<code>mdi</code>，例如 <code>&lt;v-icon&gt;mdi-apple&lt;/v-icon&gt;</code></li>
+<li><a href="https://material.io/icons/">图标</a> 苹果图表在哪里？</li>
 </ul></section>
             
           </div>
@@ -496,7 +494,117 @@
             </aside>
             
             <aside class="page_number">
-              10/10
+              10/13
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: cookbook.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code slide-11">
+          <div class="inner">
+            
+            <header><h2>图标进阶</h2></header>
+            
+            
+            <section><div class="highlight"><pre><span></span><span class="lineno">1 </span><span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&#39;https://cdn.materialdesignicons.com/2.3.54/css/materialdesignicons.min.css&#39;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span><span class="p">&gt;</span>
+</pre></div>
+
+<p>Material Design Icons <a href="https://materialdesignicons.com/bootstrap">Getting Started</a></p>
+<ol>
+<li>在 <code>index.html</code> 中加入上面的css代码;</li>
+<li>在 <code>src/App.vue</code> 中引入图标 icon加前缀<code>mdi</code>，例如 <code>&lt;v-icon&gt;mdi-apple&lt;/v-icon&gt;</code></li>
+</ol></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="cookbook.md">cookbook.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              11/13
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: cookbook.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_notes slide-12">
+          <div class="inner">
+            
+            <header><h2>Cookbook(04-finish-layout)</h2></header>
+            
+            
+            <section><p class="notes">git checkout -b 04-finish-layout &amp;&amp; git add -A &amp;&amp; git commit -m "Cookbook(04-finish-layout)" &amp;&amp; git push origin 04-finish-layout</p>
+<p>在这一课中，我们将使用v-model加载菜单。为了实现页面的交互，我们会新建几个页面(.vue)，还会修改路由设置(router.js)</p>
+<p>[展示效果]</p>
+<p>修改内容</p>
+<ul>
+<li>菜单对象和展示 <code>src/App.vue</code></li>
+<li>添加页面 <code>src/components/</code>中的 DataTable.vue, </li>
+<li>路由设置 <code>src/router.js</code></li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="cookbook.md">cookbook.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              12/13
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: cookbook.md -->
+      <div class="slide-wrapper">
+        <div class="slide slide-13">
+          <div class="inner">
+            
+            <header><h2>4.1 菜单对象和展示</h2></header>
+            
+            
+            <section><ol>
+<li><code>&lt;script&gt;</code> 中添加 menuItems</li>
+<li>v-list-tile 中添加 v-for</li>
+<li>v-btn 中添加 v-for</li>
+</ol>
+<h2>4.2 添加页面</h2></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="cookbook.md">cookbook.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              13/13
             </aside>
           </footer>
         </div>
@@ -559,6 +667,21 @@
         <tr id="toc-row-10" class="sub">
           <th><a href="#slide10">Cookbook(03-谷歌桌面布局)</a></th>
           <td><a href="#slide10">10</a></td>
+        </tr>
+        
+        <tr id="toc-row-11" class="sub">
+          <th><a href="#slide11">图标进阶</a></th>
+          <td><a href="#slide11">11</a></td>
+        </tr>
+        
+        <tr id="toc-row-12" class="sub">
+          <th><a href="#slide12">Cookbook(04-finish-layout)</a></th>
+          <td><a href="#slide12">12</a></td>
+        </tr>
+        
+        <tr id="toc-row-13" class="sub">
+          <th><a href="#slide13">4.1 菜单对象和展示</a></th>
+          <td><a href="#slide13">13</a></td>
         </tr>
         
       

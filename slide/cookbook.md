@@ -89,9 +89,19 @@
 
   `npm i webpack-dev-server --save-dev` //添加遗漏的插件
 
-** 浏览器打开**
+** 浏览器打开 **
 
 [http://localhost:8080](./img/cookbook-localhost-8080.png)
+
+** 第一次检出项目 **
+
+.notes: git checkout 01-setup
+
+  `git clone http://172.16.100.130/gerrit/web/vuetify-cookbook`
+
+  `cnpm i`
+
+  `npm run dev`
 
 ---
 
@@ -145,7 +155,7 @@
 ## 布局实战 - 跟我一起敲代码
 
 * 网站布局 `src/App.vue` <= 替换[Baseline Layout](https://github.com/vuetifyjs/vuetifyjs.com/blob/master/examples/layouts/baseline.vue)
-* [显示效果](https://vuetifyjs.com/zh-Hans/examples/layouts/baseline) / [优化效果](./img/cookbook-02-wide-window.png)
+* [基线布局效果](https://vuetifyjs.com/zh-Hans/examples/layouts/baseline) / [优化布局效果](./img/cookbook-02-wide-window.png)
 
 ### 导航: `导航抽屉` 下面写 `列表`
 
@@ -189,21 +199,26 @@
 .notes: git checkout -b 03-google-contacts-layout && git add -A && git commit -m "Cookbook(03-google-contacts-layout)" && git push origin 03-google-contacts-layout
 
 * 网站布局 `src/App.vue` <= 替换[GoogleContacts Layout](https://github.com/vuetifyjs/vuetifyjs.com/blob/master/examples/layouts/googleContacts.vue)
-* [显示效果](https://vuetifyjs.com/zh-Hans/examples/layouts/googleContacts)
+* [谷歌联系人布局效果](https://vuetifyjs.com/zh-Hans/examples/layouts/googleContacts) / [编码布局效果](./img/cookbook-03-wide-window.png)
 
 ### 导航: `导航抽屉` 下面写 `列表`
 
 * 组件之[导航抽屉](https://vuetifyjs.com/en/components/navigation-drawers)
-* 组件之[列表](https://vuetifyjs.com/en/components/lists) list: [layout: [flex.subhead,...], list-group: [tile.content.title, [tile: (action.icon, content.title),...]], tile: (action.icon, content.title), tile:...]
+* 组件之[列表](https://vuetifyjs.com/en/components/lists) list: [layout: [flex.subhead,...], list-group: [tile.content.title, [tile: (action.icon, content.title),...]], tile: (action.icon, content.title), tile:...] [列表注释](./img/cookbook-03-list-comment.png)
 * 组件之[副标题](https://vuetifyjs.com/en/components/subheaders)
-* [图标](https://material.io/icons/) android
+* [图标](https://material.io/icons/) 苹果图表在哪里？
 
-### 图标进阶
+---
+
+## 图标进阶
 
     !html
     <link href='https://cdn.materialdesignicons.com/2.3.54/css/materialdesignicons.min.css' rel="stylesheet">
 
-* Material Design Icons [Getting Started](https://materialdesignicons.com/bootstrap):  在 `index.html` 中引入css， icon加前缀`mdi`，例如 `<v-icon>mdi-apple</v-icon>`
+Material Design Icons [Getting Started](https://materialdesignicons.com/bootstrap)
+
+1. 在 `index.html` 中加入上面的css代码;
+2. 在 `src/App.vue` 中引入图标 icon加前缀`mdi`，例如 `<v-icon>mdi-apple</v-icon>`
 
 ---
 

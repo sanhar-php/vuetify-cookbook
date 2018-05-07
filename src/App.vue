@@ -8,57 +8,62 @@
       app
     >
       <v-list dense>
-        <!-- 副标题 -->
+        <!-- 副标题 heading -->
         <v-layout row>
-          <v-flex xs6>
-            <v-subheader>
-              <v-list-tile-action>
-                <v-icon>android</v-icon>
-              </v-list-tile-action>
-              Name
-            </v-subheader>
-          </v-flex>
-          <v-flex xs6 text-xs-center>
-            <v-subheader>
-              <a href="#">Change</a>
-            </v-subheader>
-          </v-flex>
+          <!-- flex.subheader list-tile-action.icon=heading.icon/child.text -->
+            <v-flex xs6>
+              <v-subheader>
+                <v-list-tile-action>
+                  <v-icon>android</v-icon>
+                </v-list-tile-action>
+                Name
+              </v-subheader>
+            </v-flex>
+          <!-- flex.subheader a href="" -->
+            <v-flex xs6 text-xs-center>
+              <v-subheader>
+                <a href="#">Change</a>
+              </v-subheader>
+            </v-flex>
         </v-layout>
-        <!-- 子菜单 -->
+        <!-- 子菜单 item.children -->
         <v-list-group
           append-icon="keyboard_arrow_down"
           v-model="group"
         >
-          <v-list-tile>
-            <v-list-tile-content>
-              <v-list-tile-title>Platform</v-list-tile-title>
-            </v-list-tile-content>
-          </v-list-tile>
-          <v-list-tile>
-            <v-list-tile-action>
-              <v-icon>mdi-apple</v-icon>
-            </v-list-tile-action>
-            <v-list-tile-content>
-              <v-list-tile-title>child-menu1</v-list-tile-title>
-            </v-list-tile-content>
-          </v-list-tile>
-          <v-list-tile>
-            <v-list-tile-action>
-              <v-icon>mdi-android</v-icon>
-            </v-list-tile-action>
-            <v-list-tile-content>
-              <v-list-tile-title>child-menu2</v-list-tile-title>
-            </v-list-tile-content>
-          </v-list-tile>
+          <!-- 分组标题list-tile content.tilte=item.text -->
+            <v-list-tile>
+              <v-list-tile-content>
+                <v-list-tile-title>Platform</v-list-tile-title>
+              </v-list-tile-content>
+            </v-list-tile>
+          <!-- 二级菜单list-tile action.icon=child.icon/content.title=child.text -->
+            <v-list-tile>
+              <v-list-tile-action>
+                <v-icon>mdi-apple</v-icon>
+              </v-list-tile-action>
+              <v-list-tile-content>
+                <v-list-tile-title>child-menu1</v-list-tile-title>
+              </v-list-tile-content>
+            </v-list-tile>
+            <v-list-tile>
+              <v-list-tile-action>
+                <v-icon>mdi-android</v-icon>
+              </v-list-tile-action>
+              <v-list-tile-content>
+                <v-list-tile-title>child-menu2</v-list-tile-title>
+              </v-list-tile-content>
+            </v-list-tile>
         </v-list-group>
-        <v-list-tile>
-          <v-list-tile-action>
-            <v-icon>mdi-account-box</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title>Account</v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
+        <!-- 一级菜单 list-tile action.icon=child.icon/content.title=child.text -->
+          <v-list-tile>
+            <v-list-tile-action>
+              <v-icon>mdi-account-box</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+              <v-list-tile-title>Account</v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
       </v-list>
     </v-navigation-drawer>
     <v-toolbar
