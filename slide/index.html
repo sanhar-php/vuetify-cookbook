@@ -83,7 +83,7 @@
             </aside>
             
             <aside class="page_number">
-              1/7
+              1/9
             </aside>
           </footer>
         </div>
@@ -92,6 +92,54 @@
       <!-- slide source: cookbook.md -->
       <div class="slide-wrapper">
         <div class="slide slide-2">
+          <div class="inner">
+            
+            <header><h2>UI Components</h2></header>
+            
+            
+            <section><pre><code>+--------------+----------------------+
+|              | Vuetify    // cross  |
+|              | Framework7 // mobile |
+| UI Components| Onsen-UI   // mobile |
+|              | Element    // desktop|
+|              | Quasar     // hybrid |
++--------------+----------------------+
+| Frontend     | Vue.js               |
+|              |                      |
+|--------------+----------------------+
+|              | Express              |
+| Backend      | sequelize            |
+|              | mysql2               |
++--------------+----------------------+
+|              | Webpack 3            |
+|   CI         | Jest                 |
+|              |                      |
++--------------+----------------------+
+</code></pre></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="cookbook.md">cookbook.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              2/9
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: cookbook.md -->
+      <div class="slide-wrapper">
+        <div class="slide slide-3">
           <div class="inner">
             
             <header><h2>Why Vuetify?</h2></header>
@@ -125,7 +173,7 @@
             </aside>
             
             <aside class="page_number">
-              2/7
+              3/9
             </aside>
           </footer>
         </div>
@@ -133,7 +181,7 @@
       
       <!-- slide source: cookbook.md -->
       <div class="slide-wrapper">
-        <div class="slide has_notes slide-3">
+        <div class="slide has_notes slide-4">
           <div class="inner">
             
             <header><h2>使用Vuetify</h2></header>
@@ -169,7 +217,7 @@
             </aside>
             
             <aside class="page_number">
-              3/7
+              4/9
             </aside>
           </footer>
         </div>
@@ -177,7 +225,7 @@
       
       <!-- slide source: cookbook.md -->
       <div class="slide-wrapper">
-        <div class="slide has_notes slide-4">
+        <div class="slide has_notes slide-5">
           <div class="inner">
             
             <header><h2>Cookbook(01-setup)</h2></header>
@@ -207,7 +255,7 @@
             </aside>
             
             <aside class="page_number">
-              4/7
+              5/9
             </aside>
           </footer>
         </div>
@@ -215,13 +263,13 @@
       
       <!-- slide source: cookbook.md -->
       <div class="slide-wrapper">
-        <div class="slide has_code has_notes slide-5">
+        <div class="slide has_code has_notes slide-6">
           <div class="inner">
             
             <header><h2>Cookbook(02-baseline-layout)</h2></header>
             
             
-            <section><p class="notes">git checkout -b 02-baseline-layout &amp;&amp; git add -A &amp;&amp; git commit -m "Cookbook(02-baseline-layout)"</p>
+            <section><p class="notes">git checkout -b 02-baseline-layout &amp;&amp; git add -A &amp;&amp; git commit -m "Cookbook(02-baseline-layout)" &amp;&amp; git push origin 02-baseline-layout</p>
 <p><strong> 布局初步 </strong></p>
 <ul>
 <li>认识基本布局：头部菜单/右侧导航栏/正文/页脚</li>
@@ -235,10 +283,11 @@
 <span class="lineno"> 6 </span>      <span class="p">&lt;</span><span class="nt">router-view</span><span class="p">&gt;&lt;/</span><span class="nt">router-view</span><span class="p">&gt;</span>
 <span class="lineno"> 7 </span>    <span class="p">&lt;/</span><span class="nt">v-container</span><span class="p">&gt;</span>
 <span class="lineno"> 8 </span>  <span class="p">&lt;/</span><span class="nt">v-content</span><span class="p">&gt;</span>
-<span class="lineno"> 9 </span>  <span class="p">&lt;</span><span class="nt">v-footer</span> <span class="na">app</span> <span class="na">color</span><span class="o">=</span><span class="s">&quot;secondary&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">v-footer</span><span class="p">&gt;</span>
+<span class="lineno"> 9 </span>  <span class="p">&lt;</span><span class="nt">v-footer</span> <span class="na">app</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;secondary&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">v-footer</span><span class="p">&gt;</span>
 <span class="lineno">10 </span><span class="p">&lt;/</span><span class="nt">v-app</span><span class="p">&gt;</span>
 </pre></div>
-</section>
+
+<p>把上面的内容替换到 <code>src/App.vue</code> 中</p></section>
             
           </div>
           <div class="presenter_notes">
@@ -254,7 +303,7 @@
             </aside>
             
             <aside class="page_number">
-              5/7
+              6/9
             </aside>
           </footer>
         </div>
@@ -262,7 +311,7 @@
       
       <!-- slide source: cookbook.md -->
       <div class="slide-wrapper">
-        <div class="slide has_code slide-6">
+        <div class="slide has_code slide-7">
           <div class="inner">
             
             <header><h2>主题颜色设置与使用</h2></header>
@@ -285,7 +334,7 @@
 
 <ul>
 <li><code>src/main.js</code> &lt;= 设置主题颜色</li>
-<li><code>src/App.vue</code> &lt;= 颜色使用主题名称</li>
+<li><code>src/App.vue</code> &lt;= 颜色使用主题中的颜色名称(primary, secondary,...)</li>
 <li><a href="https://vuetifyjs.com/zh-Hans/style/colors">Material 色彩表</a></li>
 </ul></section>
             
@@ -303,7 +352,7 @@
             </aside>
             
             <aside class="page_number">
-              6/7
+              7/9
             </aside>
           </footer>
         </div>
@@ -311,28 +360,26 @@
       
       <!-- slide source: cookbook.md -->
       <div class="slide-wrapper">
-        <div class="slide slide-7">
+        <div class="slide slide-8">
           <div class="inner">
             
             <header><h2>布局实战 - 跟我一起敲代码</h2></header>
             
             
-            <section><p>网站布局 <code>src/App.vue</code> &lt;= 替换<a href="https://github.com/vuetifyjs/vuetifyjs.com/blob/master/examples/layouts/baseline.vue">Baseline Layout</a></p>
+            <section><ul>
+<li>网站布局 <code>src/App.vue</code> &lt;= 替换<a href="https://github.com/vuetifyjs/vuetifyjs.com/blob/master/examples/layouts/baseline.vue">Baseline Layout</a></li>
+<li><a href="https://vuetifyjs.com/zh-Hans/examples/layouts/baseline">显示效果</a> / <a href="./img/cookbook-02-wide-window.png">优化效果</a></li>
+</ul>
 <h3>导航: <code>导航抽屉</code> 下面写 <code>列表</code></h3>
 <ul>
 <li>组件之<a href="https://vuetifyjs.com/en/components/navigation-drawers">导航抽屉</a></li>
 <li>组件之<a href="https://vuetifyjs.com/en/components/lists">列表</a> list: [tile: (action.icon, content.title), tile:...]</li>
-<li><a href="https://material.io/icons/">图标</a></li>
+<li><a href="https://material.io/icons/">图标</a> home/contact_mail</li>
 </ul>
 <h3>工具栏</h3>
 <ul>
 <li>组件之<a href="https://vuetifyjs.com/en/components/toolbars">工具栏</a> toolbar: (side-icon@click.stop, title)</li>
 <li>Vue.js之<a href="https://cn.vuejs.org/v2/guide/events.html">事件修饰符</a></li>
-</ul>
-<h3>页脚</h3>
-<ul>
-<li>组件之<a href="https://vuetifyjs.com/en/components/footer">页脚</a></li>
-<li>Styles/<a href="https://vuetifyjs.com/en/style/colors">colors</a> <code>&lt;span class="primary--text"&gt;&amp;copy; 2018&lt;/span&gt;</code></li>
 </ul></section>
             
           </div>
@@ -349,17 +396,43 @@
             </aside>
             
             <aside class="page_number">
-              7/7
+              8/9
             </aside>
           </footer>
         </div>
       </div>
       
-      <!-- slide source:  -->
+      <!-- slide source: cookbook.md -->
       <div class="slide-wrapper">
-        <div class="slide slide-">
+        <div class="slide has_code slide-9">
           <div class="inner">
             
+            <header><h2>布局实战 - 跟我一起敲代码(续)</h2></header>
+            
+            
+            <section><h3>页脚</h3>
+<ul>
+<li>组件之<a href="https://vuetifyjs.com/en/components/footer">页脚</a></li>
+<li>Styles/<a href="https://vuetifyjs.com/en/style/colors">colors</a> <code>&lt;span class="primary--text"&gt;&amp;copy; 2018&lt;/span&gt;</code></li>
+<li>布局之<a href="https://vuetifyjs.com/zh-Hans/layout/alignment">文本对齐</a> text-xs-center</li>
+</ul>
+<h3>导航抽屉出现在工具栏下方(navigation-drawer.clipped)</h3>
+<div class="highlight"><pre><span></span><span class="lineno">1 </span><span class="o">&lt;</span><span class="nx">v</span><span class="o">-</span><span class="nx">navigation</span><span class="o">-</span><span class="nx">drawer</span>
+<span class="lineno">2 </span>  <span class="nx">floating</span>
+<span class="lineno">3 </span>  <span class="o">:</span><span class="nx">clipped</span><span class="o">=</span><span class="s2">&quot;$vuetify.breakpoint.lgAndUp&quot;</span>
+<span class="lineno">4 </span>  <span class="nx">v</span><span class="o">-</span><span class="nx">model</span><span class="o">=</span><span class="s2">&quot;drawer&quot;</span>
+<span class="lineno">5 </span>  <span class="nx">app</span>
+<span class="lineno">6 </span><span class="o">&gt;</span>
+</pre></div>
+
+<h3>导航抽屉的左侧被工具栏截去(toolbar.clipped-left)</h3>
+<div class="highlight"><pre><span></span><span class="lineno">1 </span><span class="o">&lt;</span><span class="nx">v</span><span class="o">-</span><span class="nx">toolbar</span>
+<span class="lineno">2 </span>  <span class="kr">class</span><span class="o">=</span><span class="s2">&quot;primary&quot;</span>
+<span class="lineno">3 </span>  <span class="o">:</span><span class="nx">clipped</span><span class="o">-</span><span class="nx">left</span><span class="o">=</span><span class="s2">&quot;$vuetify.breakpoint.lgAndUp&quot;</span>
+<span class="lineno">4 </span>  <span class="nx">app</span>
+<span class="lineno">5 </span><span class="o">&gt;</span>
+</pre></div>
+</section>
             
           </div>
           <div class="presenter_notes">
@@ -370,8 +443,12 @@
           </div>
           <footer>
             
+            <aside class="source">
+              Source: <a href="cookbook.md">cookbook.md</a>
+            </aside>
+            
             <aside class="page_number">
-              /7
+              9/9
             </aside>
           </footer>
         </div>
@@ -392,33 +469,43 @@
       
         
         <tr id="toc-row-2" class="sub">
-          <th><a href="#slide2">Why Vuetify?</a></th>
+          <th><a href="#slide2">UI Components</a></th>
           <td><a href="#slide2">2</a></td>
         </tr>
         
         <tr id="toc-row-3" class="sub">
-          <th><a href="#slide3">使用Vuetify</a></th>
+          <th><a href="#slide3">Why Vuetify?</a></th>
           <td><a href="#slide3">3</a></td>
         </tr>
         
         <tr id="toc-row-4" class="sub">
-          <th><a href="#slide4">Cookbook(01-setup)</a></th>
+          <th><a href="#slide4">使用Vuetify</a></th>
           <td><a href="#slide4">4</a></td>
         </tr>
         
         <tr id="toc-row-5" class="sub">
-          <th><a href="#slide5">Cookbook(02-baseline-layout)</a></th>
+          <th><a href="#slide5">Cookbook(01-setup)</a></th>
           <td><a href="#slide5">5</a></td>
         </tr>
         
         <tr id="toc-row-6" class="sub">
-          <th><a href="#slide6">主题颜色设置与使用</a></th>
+          <th><a href="#slide6">Cookbook(02-baseline-layout)</a></th>
           <td><a href="#slide6">6</a></td>
         </tr>
         
         <tr id="toc-row-7" class="sub">
-          <th><a href="#slide7">布局实战 - 跟我一起敲代码</a></th>
+          <th><a href="#slide7">主题颜色设置与使用</a></th>
           <td><a href="#slide7">7</a></td>
+        </tr>
+        
+        <tr id="toc-row-8" class="sub">
+          <th><a href="#slide8">布局实战 - 跟我一起敲代码</a></th>
+          <td><a href="#slide8">8</a></td>
+        </tr>
+        
+        <tr id="toc-row-9" class="sub">
+          <th><a href="#slide9">布局实战 - 跟我一起敲代码(续)</a></th>
+          <td><a href="#slide9">9</a></td>
         </tr>
         
       

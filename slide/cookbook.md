@@ -14,6 +14,29 @@
 
 ---
 
+## UI Components
+
+    +--------------+----------------------+
+    |              | Vuetify    // cross  |
+    |              | Framework7 // mobile |
+    | UI Components| Onsen-UI   // mobile |
+    |              | Element    // desktop|
+    |              | Quasar     // hybrid |
+    +--------------+----------------------+
+    | Frontend     | Vue.js               |
+    |              |                      |
+    |--------------+----------------------+
+    |              | Express              |
+    | Backend      | sequelize            |
+    |              | mysql2               |
+    +--------------+----------------------+
+    |              | Webpack 3            |
+    |   CI         | Jest                 |
+    |              |                      |
+    +--------------+----------------------+
+
+---
+
 ## Why Vuetify?
 
 **Material Design**
@@ -90,8 +113,10 @@
           <router-view></router-view>
         </v-container>
       </v-content>
-      <v-footer app color="secondary"></v-footer>
+      <v-footer app class="secondary"></v-footer>
     </v-app>
+
+把上面的内容替换到 `src/App.vue` 中
 
 ---
 ## 主题颜色设置与使用
@@ -112,27 +137,49 @@
     <v-footer color="accent" app>
 
 * `src/main.js` <= 设置主题颜色
-* `src/App.vue` <= 颜色使用主题名称
+* `src/App.vue` <= 颜色使用主题中的颜色名称(primary, secondary,...)
 * [Material 色彩表](https://vuetifyjs.com/zh-Hans/style/colors)
 
 ---
 
 ## 布局实战 - 跟我一起敲代码
 
-网站布局 `src/App.vue` <= 替换[Baseline Layout](https://github.com/vuetifyjs/vuetifyjs.com/blob/master/examples/layouts/baseline.vue)
+* 网站布局 `src/App.vue` <= 替换[Baseline Layout](https://github.com/vuetifyjs/vuetifyjs.com/blob/master/examples/layouts/baseline.vue)
+* [显示效果](https://vuetifyjs.com/zh-Hans/examples/layouts/baseline) / [优化效果](./img/cookbook-02-wide-window.png)
 
 ### 导航: `导航抽屉` 下面写 `列表`
 
 * 组件之[导航抽屉](https://vuetifyjs.com/en/components/navigation-drawers)
 * 组件之[列表](https://vuetifyjs.com/en/components/lists) list: [tile: (action.icon, content.title), tile:...]
-* [图标](https://material.io/icons/)
+* [图标](https://material.io/icons/) home/contact_mail
 
 ### 工具栏
 * 组件之[工具栏](https://vuetifyjs.com/en/components/toolbars) toolbar: (side-icon@click.stop, title)
 * Vue.js之[事件修饰符](https://cn.vuejs.org/v2/guide/events.html)
 
+---
+## 布局实战 - 跟我一起敲代码(续)
+
 ### 页脚
 * 组件之[页脚](https://vuetifyjs.com/en/components/footer)
 * Styles/[colors](https://vuetifyjs.com/en/style/colors) `<span class="primary--text">&copy; 2018</span>`
 * 布局之[文本对齐](https://vuetifyjs.com/zh-Hans/layout/alignment) text-xs-center
----
+
+### 导航抽屉出现在工具栏下方(navigation-drawer.clipped)
+
+    !javascript
+    <v-navigation-drawer
+      floating
+      :clipped="$vuetify.breakpoint.lgAndUp"
+      v-model="drawer"
+      app
+    >
+
+### 导航抽屉的左侧被工具栏截去(toolbar.clipped-left)
+
+    !javascript
+    <v-toolbar
+      class="primary"
+      :clipped-left="$vuetify.breakpoint.lgAndUp"
+      app
+    >
