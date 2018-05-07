@@ -1,7 +1,8 @@
 <template>
   <v-app>
     <v-navigation-drawer
-      fixed
+      floating
+      :clipped="$vuetify.breakpoint.lgAndUp"
       v-model="drawer"
       app
     >
@@ -24,7 +25,11 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar app color="primary">
+    <v-toolbar
+      class="primary"
+      :clipped-left="$vuetify.breakpoint.lgAndUp"
+      app
+    >
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-spacer></v-spacer>
       <v-toolbar-title>Contact</v-toolbar-title>
