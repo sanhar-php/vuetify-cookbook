@@ -3,8 +3,8 @@
 
 <!-- landslide cookbook.md --relative --copy-theme -d index.html -->
 
- * V1.1
- * liyan 2018-05-02
+ * V1.2
+ * liyan 2018-05-07
 
 ## 利用 Vuetify 这个 UI 组件，快速构建 基于 Vue.js 的 Web 工程 …
 
@@ -239,8 +239,14 @@ Material Design Icons [Getting Started](https://materialdesignicons.com/bootstra
 
 ## 4.1 菜单对象和展示
 
-1. `<script>` 中添加 menuItems
-2. v-list-tile 中添加 v-for
-3. v-btn 中添加 v-for
+1. 定义 menuItems 数组(三种类型): 在 `<script>` 中
+2. 在 `list` 上 定义一个 `template`: `<template v-for="item in menuItems">`
+3. 加载副标题(v-if item.heading) `layout`: item 包含 `heading` 时加载
+4. 加载二级菜单(v-else-if item.children)
+
+    分组标题永远可见 `<v-list-tile slot="activator">`
+    二级菜单 加载 children
+
+5. 加载一级菜单(v-else)
 
 ## 4.2 添加页面

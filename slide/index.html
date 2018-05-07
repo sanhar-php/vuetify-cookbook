@@ -61,8 +61,8 @@
 <!-- landslide cookbook.md --relative --copy-theme -d index.html -->
 
 <ul>
-<li>V1.1</li>
-<li>liyan 2018-05-02</li>
+<li>V1.2</li>
+<li>liyan 2018-05-07</li>
 </ul>
 <h2>利用 Vuetify 这个 UI 组件，快速构建 基于 Vue.js 的 Web 工程 …</h2>
 <!-- .qr: 450|http://172.16.100.90:10000/slide/vuetify/ -->
@@ -584,9 +584,16 @@
             
             
             <section><ol>
-<li><code>&lt;script&gt;</code> 中添加 menuItems</li>
-<li>v-list-tile 中添加 v-for</li>
-<li>v-btn 中添加 v-for</li>
+<li>定义 menuItems 数组(三种类型): 在 <code>&lt;script&gt;</code> 中</li>
+<li>在 <code>list</code> 上 定义一个 <code>template</code>: <code>&lt;template v-for="item in menuItems"&gt;</code></li>
+<li>加载副标题(v-if item.heading) <code>layout</code>: item 包含 <code>heading</code> 时加载</li>
+<li>
+<p>加载二级菜单(v-else-if item.children)</p>
+<p>分组标题永远可见 <code>&lt;v-list-tile slot="activator"&gt;</code></p>
+</li>
+<li>
+<p>加载菜单(v-else)v-btn 中添加 v-for</p>
+</li>
 </ol>
 <h2>4.2 添加页面</h2></section>
             
