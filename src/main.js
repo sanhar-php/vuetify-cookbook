@@ -14,9 +14,11 @@ import {
   VDataTable,
   VIcon,
   VGrid,
+  VPagination,
   VSubheader,
   VTextField,
   VToolbar,
+  VToolTip,
   transitions
 } from 'vuetify'
 import '../node_modules/vuetify/src/stylus/app.styl'
@@ -33,9 +35,11 @@ Vue.use(Vuetify, {
     VDataTable,
     VIcon,
     VGrid,
+    VPagination,
     VSubheader,
     VTextField,
     VToolbar,
+    VToolTip,
     transitions
   },
   theme: {

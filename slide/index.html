@@ -62,7 +62,7 @@
 
 <ul>
 <li>V1.2</li>
-<li>liyan 2018-05-07</li>
+<li>liyan 2018-05-08</li>
 </ul>
 <h2>利用 Vuetify 这个 UI 组件，快速构建 基于 Vue.js 的 Web 工程 …</h2>
 <!-- .qr: 450|http://172.16.100.90:10000/slide/vuetify/ -->
@@ -83,7 +83,7 @@
             </aside>
             
             <aside class="page_number">
-              1/13
+              1/16
             </aside>
           </footer>
         </div>
@@ -131,7 +131,7 @@
             </aside>
             
             <aside class="page_number">
-              2/13
+              2/16
             </aside>
           </footer>
         </div>
@@ -173,7 +173,7 @@
             </aside>
             
             <aside class="page_number">
-              3/13
+              3/16
             </aside>
           </footer>
         </div>
@@ -217,7 +217,7 @@
             </aside>
             
             <aside class="page_number">
-              4/13
+              4/16
             </aside>
           </footer>
         </div>
@@ -260,7 +260,7 @@
             </aside>
             
             <aside class="page_number">
-              5/13
+              5/16
             </aside>
           </footer>
         </div>
@@ -308,7 +308,7 @@
             </aside>
             
             <aside class="page_number">
-              6/13
+              6/16
             </aside>
           </footer>
         </div>
@@ -357,7 +357,7 @@
             </aside>
             
             <aside class="page_number">
-              7/13
+              7/16
             </aside>
           </footer>
         </div>
@@ -401,7 +401,7 @@
             </aside>
             
             <aside class="page_number">
-              8/13
+              8/16
             </aside>
           </footer>
         </div>
@@ -453,7 +453,7 @@
             </aside>
             
             <aside class="page_number">
-              9/13
+              9/16
             </aside>
           </footer>
         </div>
@@ -494,7 +494,7 @@
             </aside>
             
             <aside class="page_number">
-              10/13
+              10/16
             </aside>
           </footer>
         </div>
@@ -531,7 +531,7 @@
             </aside>
             
             <aside class="page_number">
-              11/13
+              11/16
             </aside>
           </footer>
         </div>
@@ -551,8 +551,8 @@
 <p>修改内容</p>
 <ul>
 <li>菜单对象和展示 <code>src/App.vue</code></li>
-<li>添加页面 <code>src/components/</code>中的 DataTable.vue, </li>
-<li>路由设置 <code>src/router.js</code></li>
+<li>添加页面 <code>src/components/</code>中的 DataTable.vue 等，并配置到路由中 <code>src/router.js</code></li>
+<li>更新菜单对象，添加访问地址</li>
 </ul></section>
             
           </div>
@@ -569,7 +569,7 @@
             </aside>
             
             <aside class="page_number">
-              12/13
+              12/16
             </aside>
           </footer>
         </div>
@@ -589,13 +589,13 @@
 <li>加载副标题(v-if item.heading) <code>layout</code>: item 包含 <code>heading</code> 时加载</li>
 <li>
 <p>加载二级菜单(v-else-if item.children)</p>
-<p>分组标题永远可见 <code>&lt;v-list-tile slot="activator"&gt;</code></p>
+<p>分组标题永远可见 <code>&lt;v-list-tile slot="activator"&gt;</code>
+二级菜单 加载 children</p>
 </li>
 <li>
-<p>加载菜单(v-else)v-btn 中添加 v-for</p>
+<p>加载一级菜单(v-else)</p>
 </li>
-</ol>
-<h2>4.2 添加页面</h2></section>
+</ol></section>
             
           </div>
           <div class="presenter_notes">
@@ -611,7 +611,105 @@
             </aside>
             
             <aside class="page_number">
-              13/13
+              13/16
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: cookbook.md -->
+      <div class="slide-wrapper">
+        <div class="slide slide-14">
+          <div class="inner">
+            
+            <header><h2>4.2 添加页面</h2></header>
+            
+            
+            <section><ul>
+<li><code>src/components/DataTable.vue</code> <a href="https://vuetifyjs.com/en/components/data-tables">Data table</a> 组件</li>
+<li><code>src/components/DataTableExternalPagination.vue</code> <a href="https://vuetifyjs.com/en/components/data-tables">Data table</a> 组件 //调用后台翻页逻辑展示</li>
+</ul>
+<p><strong> 配置到路由中 <code>src/router.js</code> </strong></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="cookbook.md">cookbook.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              14/16
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: cookbook.md -->
+      <div class="slide-wrapper">
+        <div class="slide slide-15">
+          <div class="inner">
+            
+            <header><h2>4.3 更新菜单对象，添加访问地址</h2></header>
+            
+            
+            <section><p>item添加url属性</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="cookbook.md">cookbook.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              15/16
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: cookbook.md -->
+      <div class="slide-wrapper">
+        <div class="slide slide-16">
+          <div class="inner">
+            
+            <header><h2>Revision History</h2></header>
+            
+            
+            <section><ol>
+<li>V1.0 编写开篇至Cookbook(02-baseline-layout) 2018-05-04</li>
+<li>V1.1 增加Cookbook(03-谷歌桌面布局) 2018-05-04</li>
+<li>V1.2 增加Cookbook(04-finish-layout) 2018-05-08</li>
+</ol></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="cookbook.md">cookbook.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              16/16
             </aside>
           </footer>
         </div>
@@ -689,6 +787,21 @@
         <tr id="toc-row-13" class="sub">
           <th><a href="#slide13">4.1 菜单对象和展示</a></th>
           <td><a href="#slide13">13</a></td>
+        </tr>
+        
+        <tr id="toc-row-14" class="sub">
+          <th><a href="#slide14">4.2 添加页面</a></th>
+          <td><a href="#slide14">14</a></td>
+        </tr>
+        
+        <tr id="toc-row-15" class="sub">
+          <th><a href="#slide15">4.3 更新菜单对象，添加访问地址</a></th>
+          <td><a href="#slide15">15</a></td>
+        </tr>
+        
+        <tr id="toc-row-16" class="sub">
+          <th><a href="#slide16">Revision History</a></th>
+          <td><a href="#slide16">16</a></td>
         </tr>
         
       

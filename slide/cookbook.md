@@ -4,7 +4,7 @@
 <!-- landslide cookbook.md --relative --copy-theme -d index.html -->
 
  * V1.2
- * liyan 2018-05-07
+ * liyan 2018-05-08
 
 ## 利用 Vuetify 这个 UI 组件，快速构建 基于 Vue.js 的 Web 工程 …
 
@@ -232,8 +232,8 @@ Material Design Icons [Getting Started](https://materialdesignicons.com/bootstra
 修改内容
 
 * 菜单对象和展示 `src/App.vue`
-* 添加页面 `src/components/`中的 DataTable.vue, 
-* 路由设置 `src/router.js`
+* 添加页面 `src/components/`中的 DataTable.vue 等，并配置到路由中 `src/router.js`
+* 更新菜单对象，添加访问地址
 
 ---
 
@@ -249,4 +249,26 @@ Material Design Icons [Getting Started](https://materialdesignicons.com/bootstra
 
 5. 加载一级菜单(v-else)
 
+---
+
 ## 4.2 添加页面
+
+* `src/components/DataTable.vue` [Data table](https://vuetifyjs.com/en/components/data-tables) 组件
+* `src/components/DataTableExternalPagination.vue` [Data table](https://vuetifyjs.com/en/components/data-tables) 组件 //调用后台翻页逻辑展示
+
+** 配置到路由中 `src/router.js` **
+
+---
+
+## 4.3 更新菜单对象，添加访问地址
+
+item添加url属性
+
+
+---
+
+## Revision History
+
+1. V1.0 编写开篇至Cookbook(02-baseline-layout) 2018-05-04
+2. V1.1 增加Cookbook(03-谷歌桌面布局) 2018-05-04
+3. V1.2 增加Cookbook(04-finish-layout) 2018-05-08
