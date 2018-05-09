@@ -4,13 +4,21 @@
 <!-- landslide cookbook.md --relative --copy-theme -d index.html -->
 
  * V1.2
- * liyan 2018-05-08
+ * liyan 2018-05-09
 
 ## 利用 Vuetify 这个 UI 组件，快速构建 基于 Vue.js 的 Web 工程 …
 
 <!-- .qr: 450|http://172.16.100.90:10000/slide/vuetify/ -->
 
 ![QR Code](img/qr-code.png)
+
+---
+
+## Revision History
+
+* V1.2 增加Cookbook(04-finish-layout) 2018-05-08
+* V1.1 增加Cookbook(03-谷歌桌面布局) 2018-05-04
+* V1.0 编写开篇至Cookbook(02-baseline-layout) 2018-05-02
 
 ---
 
@@ -258,17 +266,12 @@ Material Design Icons [Getting Started](https://materialdesignicons.com/bootstra
 
 ** 配置到路由中 `src/router.js` **
 
+* /table
+* /baidu
+
 ---
 
 ## 4.3 更新菜单对象，添加访问地址
 
-item添加url属性
-
-
----
-
-## Revision History
-
-1. V1.0 编写开篇至Cookbook(02-baseline-layout) 2018-05-04
-2. V1.1 增加Cookbook(03-谷歌桌面布局) 2018-05-04
-3. V1.2 增加Cookbook(04-finish-layout) 2018-05-08
+item添加地址: `link`
+`v-list-tile` 上添加链接: 二级菜单-`:to="child.link"`; 一级菜单-`:to="item.link"`

@@ -42,13 +42,14 @@
             <!-- 分组标题list-tile content.tilte=item.text -->
               <v-list-tile slot="activator">
                 <v-list-tile-content>
-                  <v-list-tile-title>Platform</v-list-tile-title>
+                  <v-list-tile-title>{{ item.text }}</v-list-tile-title>
                 </v-list-tile-content>
               </v-list-tile>
             <!-- 二级菜单list-tile action.icon=child.icon/content.title=child.text -->
               <v-list-tile
                 v-for="(child, i) in item.children"
                 :key="i"
+                :to="child.link"
               >
                 <v-list-tile-action>
                   <v-icon>{{ child.icon }}</v-icon>
@@ -62,6 +63,7 @@
             <v-list-tile
               v-else
               :key="item.text"
+              :to="item.link"
             >
               <v-list-tile-action>
                 <v-icon>{{ item.icon }}</v-icon>
@@ -114,15 +116,33 @@ export default {
           icon: "keyboard_arrow_up",
           "icon-alt": "keyboard_arrow_down",
           text: "Platform",
-          model: true,
+          model: false,
           children: [
-            { icon: "mdi-android", text: "Android Apps" },
-            { icon: "mdi-apple", text: "iOS Apps" }
+            { icon: "mdi-android", text: "Android Apps", link: "" },
+            { icon: "mdi-apple", text: "iOS Apps", link: "" }
           ]
         },
+        // 二级菜单: 带children数组的
+        {
+          icon: "keyboard_arrow_up",
+          "icon-alt": "keyboard_arrow_down",
+          text: "UI Components",
+          model: true,
+          children: [
+            { icon: "mdi-database", text: "Data Table", link: "/table" }
+          ]
+        },
+        // 二级菜单: 带children数组的
+        {
+          icon: "keyboard_arrow_up",
+          "icon-alt": "keyboard_arrow_down",
+          text: "Other Samples",
+          model: true,
+          children: [{ icon: "mdi-web", text: "Cross Domain", link: "/baidu" }]
+        },
         // 一级菜单
-        { icon: "mdi-account-box", text: "Account" },
-        { icon: "help", text: "Help" }
+        { icon: "mdi-account-box", text: "Account", link: "" },
+        { icon: "help", text: "Help", link: "" }
       ]
     };
   }
