@@ -10,7 +10,15 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/cross-domin/baidu': {
+        target: 'http://suggestion.baidu.com', // 目标域名
+        changeOrigin: true,
+        pathRewrite: {
+          '^/cross-domin/baidu': '/s' // http://localhost:8080/baidu/s?wd=vue => http://suggestion.baidu.com/s?wd=vue
+        }
+      }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
