@@ -17,9 +17,33 @@
 
 ## Revision History
 
+* V1.3 增加关于页面、01-setup补充安装软件和常见问题 2018-05-14
 * V1.2 增加Cookbook(04-finish-layout) 2018-05-08
 * V1.1 增加Cookbook(03-谷歌桌面布局) 2018-05-04
 * V1.0 编写开篇至Cookbook(02-baseline-layout) 2018-05-02
+
+---
+
+## About
+
+### Audience
+
+* 这个片子面向具有前端应用开发部署的经验，对前端开发有兴趣的软件行业工作者
+* 前置技能 `Git` 、 `vue-cli`
+
+### Work Env
+
+    !bash
+    ➜  slide git:(master) ✗ nvm --version
+    0.33.6
+    ➜  slide git:(master) ✗ nvm current
+    v8.11.1
+    ➜  slide git:(master) ✗ npm -v
+    6.0.0
+    ➜  slide git:(master) ✗ grep version ../node_modules/vuetify/package.json
+      "version": "1.0.17",
+
+* 一台安装 `node` 长期支持版和 `VSCode` 的电脑 //建议首先安装 [Node Version Manager](http://wiki.li3huo.com/Node.js#Node_Version_Manager), 方便以后管理多版本
 
 ---
 
@@ -112,6 +136,32 @@
   `cnpm i`
 
   `npm run dev`
+
+---
+
+## 在 Windows 下安装相关软件
+
+### 1. [Git for Windows](https://gitforwindows.org/)
+
+* Git for Windows是官方推荐的windows环境的Git工具集，包括Git GUI和Git Bash两部分
+* 更多使用帮助请参考：[玩转 Git BASH](../gerrit/git-bash.html)
+
+### 2. [nvm-windows](https://github.com/coreybutler/nvm-windows/releases)
+
+.notes: nvm install --lts
+
+    !bash
+    npm install 8.11.1
+    npm use 8.11.1
+    npm install -g cnpm --registry=https://registry.npm.taobao.org
+
+### 3. [Visual Studio Code](https://code.visualstudio.com/Download)
+
+---
+
+## Windows 下常见的问题及解决
+
+### 1. 遇到过啥问题，说说呗
 
 ---
 
@@ -271,8 +321,10 @@ Material Design Icons [Getting Started](https://materialdesignicons.com/bootstra
 
 ## 4.2 添加页面
 
+* `src/components/Carousels.vue` [轮播](https://vuetifyjs.com/en/components/carousels) 组件
 * `src/components/DataTable.vue` [Data table](https://vuetifyjs.com/en/components/data-tables) 组件
-* `src/components/DataTableExternalPagination.vue` [Data table](https://vuetifyjs.com/en/components/data-tables) 组件 //调用后台翻页逻辑展示
+* `src/components/DataTableExternalPagination.vue` 调用后台翻页逻辑展示
+* `src/components/Samples/BaiduQuery.vue` 跨域调试 //Vue proxyTable
 
 ** 配置到路由中 `src/router.js` **
 
