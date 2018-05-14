@@ -1,10 +1,11 @@
 # Vue.js + Vuetify + MySQL 项目开发教程
+
 .notes: Generate HTML5 slideshows by landslide
 
 <!-- landslide cookbook.md --relative --copy-theme -d index.html -->
 
- * V1.2
- * liyan 2018-05-09
+* V1.2
+* liyan 2018-05-09
 
 ## 利用 Vuetify 这个 UI 组件，快速构建 基于 Vue.js 的 Web 工程 …
 
@@ -45,18 +46,18 @@
 
 ---
 
-## Why Vuetify?
+## Why Vuetify
 
-**Material Design**
+** Material Design **
 
 * Material Design 是 Google 发布的全平台设计规范
 * 完美支持规范中的所有色彩 和 [图标](https://material.io/icons/)
 
-**语义化工具箱**
+** 语义化工具箱 **
 
 * 像说话一样的编写组件，让 coding 变得更加顺畅
 
-**强大的支持**
+** 强大的支持 **
 
 * 响应式布局 + 活跃的社区 + 持续的更新
 
@@ -64,17 +65,17 @@
 
 ## 使用Vuetify
 
-**确定网站布局**
+### 1. 确定网站布局
 
 * [Pre-defined Layouts](https://vuetifyjs.com/zh-Hans/layout/pre-defined)
 
-**确定风格与主题**
+### 2. 确定风格与主题
 
 * 颜色 `color`类 背景(class="color")和文字(class="color--text")
 * 主题颜色包 theme: {primary:..., secondary:...}
 * [主题生成器](https://vuetifyjs.com/theme-generator) 自定义颜色、默认样式等
 
-**应用 UI 组件库**
+### 3. 应用 UI 组件库
 
 * [Component API Overview](https://vuetifyjs.com/zh-Hans/components/api-explorer)
 
@@ -83,6 +84,7 @@
 ---
 
 ## Cookbook(01-setup)
+
 .notes: git branch 01-setup && git checkout 01-setup && git add -A && git commit -m "Cookbook(01-setup)"
 
 参考 [快速入门](https://vuetifyjs.com/zh-Hans/getting-started/quick-start) 创建全新项目 或 引入到现存项目
@@ -95,7 +97,7 @@
 
   `npm run dev`
 
-  `npm i webpack-dev-server --save-dev` //添加遗漏的插件
+  `npm i webpack-dev-server --save-dev` #添加遗漏的包
 
 ** 浏览器打开 **
 
@@ -114,6 +116,7 @@
 ---
 
 ## Cookbook(02-baseline-layout)
+
 .notes: git checkout -b 02-baseline-layout && git add -A && git commit -m "Cookbook(02-baseline-layout)" && git push origin 02-baseline-layout
 
 ** 布局初步 **
@@ -137,6 +140,7 @@
 把上面的内容替换到 `src/App.vue` 中
 
 ---
+
 ## 主题颜色设置与使用
 
     !javascript
@@ -172,13 +176,16 @@
 * [图标](https://material.io/icons/) home/contact_mail
 
 ### 工具栏
+
 * 组件之[工具栏](https://vuetifyjs.com/en/components/toolbars) toolbar: (side-icon@click.stop, title)
 * Vue.js之[事件修饰符](https://cn.vuejs.org/v2/guide/events.html)
 
 ---
+
 ## 布局实战 - 跟我一起敲代码(续)
 
 ### 页脚
+
 * 组件之[页脚](https://vuetifyjs.com/en/components/footer)
 * Styles/[colors](https://vuetifyjs.com/en/style/colors) `<span class="primary--text">&copy; 2018</span>`
 * 布局之[文本对齐](https://vuetifyjs.com/zh-Hans/layout/alignment) text-xs-center
@@ -203,13 +210,15 @@
     >
 
 ---
+
 ## Cookbook(03-谷歌桌面布局)
+
 .notes: git checkout -b 03-google-contacts-layout && git add -A && git commit -m "Cookbook(03-google-contacts-layout)" && git push origin 03-google-contacts-layout
 
 * 网站布局 `src/App.vue` <= 替换[GoogleContacts Layout](https://github.com/vuetifyjs/vuetifyjs.com/blob/master/examples/layouts/googleContacts.vue)
 * [谷歌联系人布局效果](https://vuetifyjs.com/zh-Hans/examples/layouts/googleContacts) / [编码布局效果](./img/cookbook-03-wide-window.png)
 
-### 导航: `导航抽屉` 下面写 `列表`
+### 导航: `列表` 中包含三种类型的内容
 
 * 组件之[导航抽屉](https://vuetifyjs.com/en/components/navigation-drawers)
 * 组件之[列表](https://vuetifyjs.com/en/components/lists) list: [layout: [flex.subhead,...], list-group: [tile.content.title, [tile: (action.icon, content.title),...]], tile: (action.icon, content.title), tile:...] [列表注释](./img/cookbook-03-list-comment.png)
@@ -231,6 +240,7 @@ Material Design Icons [Getting Started](https://materialdesignicons.com/bootstra
 ---
 
 ## Cookbook(04-finish-layout)
+
 .notes: git checkout -b 04-finish-layout && git add -A && git commit -m "Cookbook(04-finish-layout)" && git push origin 04-finish-layout
 
 在这一课中，我们将使用v-model加载菜单。为了实现页面的交互，我们会新建几个页面(.vue)，还会修改路由设置(router.js)
