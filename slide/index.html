@@ -98,7 +98,7 @@
             
             
             <section><ul>
-<li>V1.3 增加关于页面 2018-05-14</li>
+<li>V1.3 增加关于页面、01-setup补充安装软件和常见问题 2018-05-14</li>
 <li>V1.2 增加Cookbook(04-finish-layout) 2018-05-08</li>
 <li>V1.1 增加Cookbook(03-谷歌桌面布局) 2018-05-04</li>
 <li>V1.0 编写开篇至Cookbook(02-baseline-layout) 2018-05-02</li>
@@ -399,7 +399,7 @@
             <header><h2>Windows 下常见的问题及解决</h2></header>
             
             
-            <section><h3>1. 啥问题，说说呗</h3></section>
+            <section><h3>1. 遇到过啥问题，说说呗</h3></section>
             
           </div>
           <div class="presenter_notes">
@@ -781,13 +781,20 @@
             
             
             <section><ul>
+<li><code>src/components/Carousels.vue</code> <a href="https://vuetifyjs.com/en/components/carousels">轮播</a> 组件</li>
 <li><code>src/components/DataTable.vue</code> <a href="https://vuetifyjs.com/en/components/data-tables">Data table</a> 组件</li>
-<li><code>src/components/DataTableExternalPagination.vue</code> <a href="https://vuetifyjs.com/en/components/data-tables">Data table</a> 组件 //调用后台翻页逻辑展示</li>
+<li><code>src/components/DataTableExternalPagination.vue</code> 调用后台翻页逻辑展示</li>
+<li><code>src/components/Samples/BaiduQuery.vue</code> 跨域调试 //Vue proxyTable</li>
 </ul>
 <p><strong> 配置到路由中 <code>src/router.js</code> </strong></p>
 <ul>
+<li>/       //Carousels</li>
 <li>/table</li>
 <li>/baidu</li>
+</ul>
+<p><strong> 更多页面 </strong></p>
+<ul>
+<li><code>src/components/Card.vue</code></li>
 </ul></section>
             
           </div>
@@ -818,8 +825,15 @@
             <header><h2>4.3 更新菜单对象，添加访问地址</h2></header>
             
             
-            <section><p>item添加地址: <code>link</code>
-<code>v-list-tile</code> 上添加链接: 二级菜单-<code>:to="child.link"</code>; 一级菜单-<code>:to="item.link"</code></p></section>
+            <section><h3>4.3.1 <code>Backend Console</code> 上添加 Home 链接</h3>
+<p><code>&lt;span class="hidden-sm-and-down"&gt;Backend Console&lt;/span&gt;</code> ==&gt;</p>
+<p><code>&lt;router-link to="/" tag="span" style="cursor: pointer"&gt;Backend Console&lt;/router-link&gt;</code></p>
+<h3>4.3.2 item添加地址: <code>link</code></h3>
+<p><code>v-list-tile</code> 上添加链接</p>
+<ul>
+<li>二级菜单-<code>:to="child.link"</code></li>
+<li>一级菜单-<code>:to="item.link"</code></li>
+</ul></section>
             
           </div>
           <div class="presenter_notes">

@@ -328,12 +328,27 @@ Material Design Icons [Getting Started](https://materialdesignicons.com/bootstra
 
 ** 配置到路由中 `src/router.js` **
 
+* /       //Carousels
 * /table
 * /baidu
+
+** 更多页面 **
+
+* `src/components/Card.vue`
 
 ---
 
 ## 4.3 更新菜单对象，添加访问地址
 
-item添加地址: `link`
-`v-list-tile` 上添加链接: 二级菜单-`:to="child.link"`; 一级菜单-`:to="item.link"`
+### 4.3.1 `Backend Console` 上添加 Home 链接
+
+`<span class="hidden-sm-and-down">Backend Console</span>` ==>
+
+`<router-link to="/" tag="span" style="cursor: pointer">Backend Console</router-link>`
+
+### 4.3.2 item添加地址: `link`
+
+`v-list-tile` 上添加链接
+
+* 二级菜单-`:to="child.link"`
+* 一级菜单-`:to="item.link"`

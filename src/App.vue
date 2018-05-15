@@ -82,7 +82,7 @@
     >
       <v-toolbar-title style="width: 300px" class="ml-0 pl-3">
         <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-        <span class="hidden-sm-and-down">Backend Console</span>
+        <router-link to="/" tag="span" style="cursor: pointer">Backend Console</router-link>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn icon>
@@ -129,6 +129,7 @@ export default {
           text: "UI Components",
           model: true,
           children: [
+            { icon: "mdi-account-card-details", text: "Card", link: "/card" },
             { icon: "mdi-database", text: "Data Table", link: "/table" }
           ]
         },
