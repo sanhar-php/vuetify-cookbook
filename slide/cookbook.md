@@ -4,8 +4,8 @@
 
 <!-- landslide cookbook.md --relative --copy-theme -d index.html -->
 
-* V1.2
-* liyan 2018-05-09
+* V1.3 [演示版](./dist)
+* liyan 2018-05-14
 
 ## 利用 Vuetify 这个 UI 组件，快速构建 基于 Vue.js 的 Web 工程 …
 
@@ -334,7 +334,8 @@ Material Design Icons [Getting Started](https://materialdesignicons.com/bootstra
 
 ** 更多页面 **
 
-* `src/components/Card.vue`
+* `src/components/Card.vue` 卡片组件
+* `src/components/Picker.vue` 日期、时间选择器
 
 ---
 
@@ -348,7 +349,7 @@ Material Design Icons [Getting Started](https://materialdesignicons.com/bootstra
 
 ### 4.3.2 item添加地址: `link`
 
-`v-list-tile` 上添加链接
+`v-list-tile` 上添加链接和[图标](https://materialdesignicons.com/)
 
 * 二级菜单-`:to="child.link"`
 * 一级菜单-`:to="item.link"`

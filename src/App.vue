@@ -130,6 +130,7 @@ export default {
           model: true,
           children: [
             { icon: "mdi-account-card-details", text: "Card", link: "/card" },
+            { icon: "mdi-calendar-range", text: "Picker", link: "/picker" },
             { icon: "mdi-database", text: "Data Table", link: "/table" }
           ]
         },

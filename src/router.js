@@ -4,6 +4,7 @@ import Home from '@/components/Carousels'
 import Card from '@/components/Card'
 // import DataTable from '@/components/DataTable'
 import DataTable from '@/components/DataTableExternalPagination'
+import Picker from '@/components/Picker'
 // 跨域 demo
 import BaiduQuery from '@/components/Samples/BaiduQuery'
 
@@ -22,6 +23,11 @@ export default new Router({
       path: '/card',
       name: 'Card',
       component: Card
+    },
+    {
+      path: '/picker',
+      name: 'Picker',
+      component: Picker
     },
     {
       path: '/table',

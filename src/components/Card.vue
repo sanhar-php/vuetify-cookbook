@@ -10,7 +10,7 @@
         </ol>
         <h2>常见问题</h2>
         <h3>使用相对路径的图片在v-card中不起作用</h3>
-        <code> &lt;v-card :src="require('path/to/img/img.jpg')"</code>
+        <code> &lt;v-card :src="require('path/to/img/img.jpg')"></code>
       </v-flex>
     </v-layout>
     <v-layout>
