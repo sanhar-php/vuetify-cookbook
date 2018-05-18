@@ -17,10 +17,10 @@
 
 ## Revision History
 
-* V1.3 增加关于页面、01-setup补充安装软件和常见问题 2018-05-14
-* V1.2 增加Cookbook(04-finish-layout) 2018-05-08
-* V1.1 增加Cookbook(03-谷歌桌面布局) 2018-05-04
-* V1.0 编写开篇至Cookbook(02-baseline-layout) 2018-05-02
+* V1.3 增加关于页面、01-setup 补充安装软件和常见问题 2018-05-14
+* V1.2 增加 Cookbook(04-finish-layout) 2018-05-08
+* V1.1 增加 Cookbook(03-谷歌桌面布局) 2018-05-04
+* V1.0 编写开篇至 Cookbook(02-baseline-layout) 2018-05-02
 
 ---
 
@@ -87,7 +87,7 @@
 
 ---
 
-## 使用Vuetify
+## 使用 Vuetify
 
 ### 1. 确定网站布局
 
@@ -115,13 +115,13 @@
 
 ** 创建 vuetify-cookbook 项目 **
 
-  `$ vue init vuetifyjs/webpack vuetify-cookbook` //*[创建项目选用的参数](./img/cookbook-create-project.png)*
+`$ vue init vuetifyjs/webpack vuetify-cookbook` //_[创建项目选用的参数](./img/cookbook-create-project.png)_
 
 ** 启动项目 **
 
-  `npm run dev`
+`npm run dev`
 
-  `npm i webpack-dev-server --save-dev` #添加遗漏的包
+`npm i webpack-dev-server --save-dev` #添加遗漏的包
 
 ** 浏览器打开 **
 
@@ -131,11 +131,11 @@
 
 .notes: git checkout 01-setup
 
-  `git clone http://172.16.100.130/gerrit/web/vuetify-cookbook`
+`git clone http://172.16.100.130/gerrit/web/vuetify-cookbook`
 
-  `cnpm i`
+`cnpm i`
 
-  `npm run dev`
+`npm run dev`
 
 ---
 
@@ -143,7 +143,7 @@
 
 ### 1. [Git for Windows](https://gitforwindows.org/)
 
-* Git for Windows是官方推荐的windows环境的Git工具集，包括Git GUI和Git Bash两部分
+* Git for Windows 是官方推荐的 windows 环境的 Git 工具集，包括 Git GUI 和 Git Bash 两部分
 * 更多使用帮助请参考：[玩转 Git BASH](../gerrit/git-bash.html)
 
 ### 2. [nvm-windows](https://github.com/coreybutler/nvm-windows/releases)
@@ -228,7 +228,7 @@
 ### 工具栏
 
 * 组件之[工具栏](https://vuetifyjs.com/en/components/toolbars) toolbar: (side-icon@click.stop, title)
-* Vue.js之[事件修饰符](https://cn.vuejs.org/v2/guide/events.html)
+* Vue.js 之[事件修饰符](https://cn.vuejs.org/v2/guide/events.html)
 
 ---
 
@@ -271,7 +271,7 @@
 ### 导航: `列表` 中包含三种类型的内容
 
 * 组件之[导航抽屉](https://vuetifyjs.com/en/components/navigation-drawers)
-* 组件之[列表](https://vuetifyjs.com/en/components/lists) list: [layout: [flex.subhead,...], list-group: [tile.content.title, [tile: (action.icon, content.title),...]], tile: (action.icon, content.title), tile:...] [列表注释](./img/cookbook-03-list-comment.png)
+* 组件之[列表](https://vuetifyjs.com/en/components/lists) list: [layout: [flex.subhead,...], list-group: [tile.content.title, [tile: (action.icon, content.title),...]], tile: (action.icon, content.title), tile:...][列表注释](./img/cookbook-03-list-comment.png)
 * 组件之[副标题](https://vuetifyjs.com/en/components/subheaders)
 * [图标](https://material.io/icons/) 苹果图表在哪里？
 
@@ -284,8 +284,8 @@
 
 Material Design Icons [Getting Started](https://materialdesignicons.com/bootstrap)
 
-1. 在 `index.html` 中加入上面的css代码;
-2. 在 `src/App.vue` 中引入图标 icon加前缀`mdi`，例如 `<v-icon>mdi-apple</v-icon>`
+1.  在 `index.html` 中加入上面的 css 代码;
+2.  在 `src/App.vue` 中引入图标 icon 加前缀`mdi`，例如 `<v-icon>mdi-apple</v-icon>`
 
 ---
 
@@ -293,7 +293,7 @@ Material Design Icons [Getting Started](https://materialdesignicons.com/bootstra
 
 .notes: git checkout -b 04-finish-layout && git add -A && git commit -m "Cookbook(04-finish-layout)" && git push origin 04-finish-layout
 
-在这一课中，我们将使用v-model加载菜单。为了实现页面的交互，我们会新建几个页面(.vue)，还会修改路由设置(router.js)
+在这一课中，我们将使用 v-model 加载菜单。为了实现页面的交互，我们会新建几个页面(.vue)，还会修改路由设置(router.js)
 
 [展示效果]
 
@@ -307,15 +307,15 @@ Material Design Icons [Getting Started](https://materialdesignicons.com/bootstra
 
 ## 4.1 菜单对象和展示
 
-1. 定义 menuItems 数组(三种类型): 在 `<script>` 中
-2. 在 `list` 上 定义一个 `template`: `<template v-for="item in menuItems">`
-3. 加载副标题(v-if item.heading) `layout`: item 包含 `heading` 时加载
-4. 加载二级菜单(v-else-if item.children)
+1.  定义 menuItems 数组(三种类型): 在 `<script>` 中
+2.  在 `list` 上 定义一个 `template`: `<template v-for="item in menuItems">`
+3.  加载副标题(v-if item.heading) `layout`: item 包含 `heading` 时加载
+4.  加载二级菜单(v-else-if item.children)
 
     分组标题永远可见 `<v-list-tile slot="activator">`
     二级菜单 加载 children
 
-5. 加载一级菜单(v-else)
+5.  加载一级菜单(v-else)
 
 ---
 
@@ -328,7 +328,7 @@ Material Design Icons [Getting Started](https://materialdesignicons.com/bootstra
 
 ** 配置到路由中 `src/router.js` **
 
-* /       //Carousels
+* / //Carousels
 * /table
 * /baidu
 
@@ -347,7 +347,7 @@ Material Design Icons [Getting Started](https://materialdesignicons.com/bootstra
 
 `<router-link to="/" tag="span" style="cursor: pointer">Backend Console</router-link>`
 
-### 4.3.2 item添加地址: `link`
+### 4.3.2 item 添加地址: `link`
 
 `v-list-tile` 上添加链接和[图标](https://materialdesignicons.com/)
 
