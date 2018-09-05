@@ -1,6 +1,7 @@
 <template>
   <v-app>
-    <v-navigation-drawer dark floating :clipped="$vuetify.breakpoint.lgAndUp" v-model="drawer" app>
+    <!-- left navi-bar begin -->
+    <v-navigation-drawer dark floating :clipped="$vuetify.breakpoint.lgAndUp" v-model="sideNav" app>
       <v-list dense>
         <template v-for="item in menuItems">
           <!-- 副标题 heading -->
@@ -51,23 +52,51 @@
         </template>
       </v-list>
     </v-navigation-drawer>
+    <!-- left navi-bar end -->
+
+    <!-- my-toolbar begin -->
     <v-toolbar color="primary" :clipped-left="$vuetify.breakpoint.lgAndUp" app>
       <v-toolbar-title style="width: 300px" class="ml-0 pl-3">
-        <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-        <router-link to="/" tag="span" style="cursor: pointer">Backend Console</router-link>
+        <v-toolbar-side-icon @click.stop="sideNav = !sideNav"></v-toolbar-side-icon>
+        <span class="hidden-sm-and-down">Backend Console</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn icon>
-        <v-icon>apps</v-icon>
-      </v-btn>
+      <v-toolbar-items class="hidden-xs-only">
+        <template v-if="userIsAuthenticated">
+          <v-btn flat to="/profile">
+            <v-icon left dark>person</v-icon>
+            Profile
+          </v-btn>
+          <v-btn flat @click="onLogout">
+            <v-icon left dark>exit_to_app</v-icon>
+            Logout
+          </v-btn>
+        </template>
+        <template v-else>
+          <v-btn flat to="/signup">
+            <v-icon left dark>face</v-icon>
+            Sign up
+          </v-btn>
+          <v-btn flat to="/signin">
+            <v-icon left dark>lock_open</v-icon>
+            Sign in
+          </v-btn>
+        </template>
+      </v-toolbar-items>
     </v-toolbar>
+    <!-- my-toolbar end -->
+
+    <!-- main content here-->
     <v-content>
       <v-container fluid>
         <router-view></router-view>
       </v-container>
     </v-content>
+
+    <!-- footer here -->
     <v-footer app color="secondary">
-      <span class="primary--text flex text-xs-center">&copy; 2018</span>
+      <span class="primary--text flex text-xs-center">&copy;
+        <strong>Copyright</strong> 2018</span>
     </v-footer>
   </v-app>
 </template>
@@ -79,9 +108,13 @@ let heading = { icon: "mdi-android", text: "Android Apps" };
 export default {
   data () {
     return {
-      drawer: true,
+      sideNav: false
+    };
+  },
+  computed: {
+    menuItems () {
       // 菜单对象数组
-      menuItems: [
+      let menuItems = [
         { heading: heading },
         // 二级菜单: 带children数组的
         {
@@ -101,8 +134,6 @@ export default {
           text: "UI Components",
           model: true,
           children: [
-            { icon: "mdi-account-card-details", text: "Card", link: "/card" },
-            { icon: "mdi-calendar-range", text: "Picker", link: "/picker" },
             { icon: "mdi-database", text: "Data Table", link: "/table" }
           ]
         },
@@ -114,11 +145,34 @@ export default {
           model: true,
           children: [{ icon: "mdi-web", text: "Cross Domain", link: "/baidu" }]
         },
-        // 一级菜单
-        { icon: "mdi-account-box", text: "Account", link: "" },
+        { icon: "face", text: "Sign up", link: "/signup" },
+        { icon: "lock_open", text: "Sign in", link: "/signin" },
         { icon: "help", text: "Help", link: "" }
-      ]
-    };
+      ];
+      if (this.userIsAuthenticated) {
+        menuItems = [
+          ...menuItems,
+          {
+            icon: "supervisor_account",
+            text: "Admin",
+            link: "/admin"
+          },
+          { icon: "mdi-account-box", text: "Profile", link: "/profile" }
+        ];
+      }
+      return menuItems;
+    },
+    userIsAuthenticated () {
+      return (
+        this.$store.getters.user !== null &&
+        this.$store.getters.user !== undefined
+      );
+    }
+  },
+  methods: {
+    onLogout () {
+      this.$store.dispatch("logout");
+    }
   }
 };
 </script>

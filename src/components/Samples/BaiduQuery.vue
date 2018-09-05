@@ -30,35 +30,35 @@
 </template>
 
 <script>
-import axios from "axios";
+import axios from 'axios'
 export default {
   // 另外一种写法
   data: () => ({
     url: null,
     selection: [
       {
-        text: "http://suggestion.baidu.com/s?wd=vue",
-        info: "not allowed access"
+        text: 'http://suggestion.baidu.com/s?wd=vue',
+        info: 'not allowed access'
       },
       {
-        text: "/cross-domin/baidu/s?wd=vue",
-        info: "proxyTable@config/index.js"
+        text: '/cross-domin/baidu/s?wd=vue',
+        info: 'proxyTable@config/index.js'
       }
     ],
     headers: [
       {
-        text: "Enter Query String ()",
-        align: "left",
+        text: 'Enter Query String ()',
+        align: 'left',
         sortable: false,
-        value: "name"
+        value: 'name'
       },
-      { text: "Suggestion", value: "s" }
+      { text: 'Suggestion', value: 's' }
     ],
     items: []
   }),
   methods: {
     query (url) {
-      if (url === null || url === "undefined") return;
+      if (url === null || url === 'undefined') return
       // window.baidu = {
       //   sug: function (options) {
       //     console.dir(options);
@@ -71,27 +71,27 @@ export default {
           // console.log("resp =", resp.data);
           let parseData = JSON.parse(
             resp.data
-              .replace(/window.baidu.sug\(/, "")
-              .replace(/\)/, "")
+              .replace(/window.baidu.sug\(/, '')
+              .replace(/\)/, '')
               .replace(/q/, '"$&"')
               .replace(/p/, '"$&"')
               .replace(/,s/, ',"s"')
-              .replace(/;/, "")
-          );
-          this.headers[0].text = "Query String (" + parseData.q + ")";
-          console.log("json.s =", parseData.s);
+              .replace(/;/, '')
+          )
+          this.headers[0].text = 'Query String (' + parseData.q + ')'
+          console.log('json.s =', parseData.s)
           for (let i = 0; i < parseData.s.length; i++) {
             this.items.push({
               value: false,
               name: parseData.q,
               s: parseData.s[i]
-            });
+            })
           }
         })
         .catch(err => {
-          alert(err);
-        });
+          alert(err)
+        })
     }
   }
-};
+}
 </script>
