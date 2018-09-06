@@ -7,7 +7,7 @@
           <!-- 副标题 heading -->
           <v-layout row v-if="item.heading" :key="item.heading.id">
             <!-- flex.subheader list-tile-action.icon=heading.icon/child.text -->
-            <v-flex xs6>
+            <v-flex xs8>
               <v-subheader>
                 <v-list-tile-action>
                   <v-icon>{{item.heading.icon}}</v-icon>
@@ -15,13 +15,8 @@
                 {{item.heading.text}}
               </v-subheader>
             </v-flex>
-            <!-- flex.subheader a href="" -->
-            <v-flex xs6 text-xs-center>
-              <v-subheader>
-                <a href="#">Change</a>
-              </v-subheader>
-            </v-flex>
           </v-layout>
+
           <!-- 子菜单 item.children -->
           <v-list-group v-else-if="item.children" :key="item.text" v-model="item.model" :prepend-icon="item.model ? item.icon : item['icon-alt']" append-icon="">
             <!-- 分组标题list-tile content.tilte=item.text -->
