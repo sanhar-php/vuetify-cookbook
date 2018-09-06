@@ -2,23 +2,15 @@
   <v-container fluid>
     <v-layout>
       <v-flex xs12>
-        <h1>Cross-Domain access with Vue proxyTable</h1>
+        <h1>Cross-Domain access with Vue devServer.proxy</h1>
         <h2>{{ url }}</h2>
-        <v-select
-          :items="selection"
-          v-model="url"
-          label="访问地址"
-          single-line
-        ></v-select>
+        <v-select :items="selection" v-model="url" label="访问地址" single-line></v-select>
         <v-btn @click="query(url)">click</v-btn>
       </v-flex>
     </v-layout>
     <v-layout>
       <v-flex xs12>
-        <v-data-table
-          :headers="headers"
-          :items="items"
-        >
+        <v-data-table :headers="headers" :items="items">
           <template slot="items" slot-scope="props">
             <td>{{ props.item.name }}</td>
             <td class="text-xs-right">{{ props.item.s }}</td>
@@ -66,7 +58,7 @@ export default {
       // };
       // console.log("url =", url.text);
       axios
-        .get(this.url.text)
+        .get(this.url)
         .then(resp => {
           // console.log("resp =", resp.data);
           let parseData = JSON.parse(

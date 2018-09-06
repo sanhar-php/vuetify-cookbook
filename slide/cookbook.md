@@ -284,7 +284,7 @@
 
 Material Design Icons [Getting Started](https://materialdesignicons.com/bootstrap)
 
-1.  在 `index.html` 中加入上面的 css 代码;
+1.  在 `index.html` 中加入上面的 css 代码(`public/index.html` in vue v3);
 2.  在 `src/App.vue` 中引入图标 icon 加前缀`mdi`，例如 `<v-icon>mdi-apple</v-icon>`
 
 ---
@@ -324,7 +324,7 @@ Material Design Icons [Getting Started](https://materialdesignicons.com/bootstra
 * `src/components/Carousels.vue` [轮播](https://vuetifyjs.com/en/components/carousels) 组件
 * `src/components/DataTable.vue` [Data table](https://vuetifyjs.com/en/components/data-tables) 组件
 * `src/components/DataTableExternalPagination.vue` 调用后台翻页逻辑展示
-* `src/components/Samples/BaiduQuery.vue` 跨域调试 //Vue proxyTable
+* `src/components/Samples/BaiduQuery.vue` 跨域调试 //Vue proxyTable(`devServer.proxy` in Vue v3)
 
 ** 配置到路由中 `src/router.js` **
 
