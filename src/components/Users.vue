@@ -1,10 +1,11 @@
 <template>
   <v-container>
     <v-layout row wrap>
-      <v-flex xs12 lg10>
+      <v-flex xs12 lg12>
+        <span class="text-xs-center" v-if="loading">Loading…</span>
         <h3 class="primary--text text-xs-center">User List</h3>
         <!-- https://vuetifyjs.com/zh-Hans/components/data-tables -->
-        <v-data-table v-model="selected" :headers="headers" :items="meetups" hide-actions :pagination.sync="pagination" select-all item-key="title" class="text-xs-center">
+        <v-data-table v-model="selected" :headers="headers" :items="datas" hide-actions :pagination.sync="pagination" select-all item-key="name" class="text-xs-center">
           <!-- table-headers -->
           <template slot="headers" slot-scope="props">
             <tr>
@@ -15,6 +16,7 @@
                 <v-icon small>arrow_upward</v-icon>
                 {{ header.text }}
               </th>
+              <th>Company</th>
               <th>操作</th>
             </tr>
           </template>
@@ -25,12 +27,13 @@
                 <v-checkbox :input-value="props.selected" primary hide-details></v-checkbox>
               </td>
               <td v-for="header in headers" :key="header.id">{{ props.item[header.value]}}</td>
+              <td>{{ props.item.company.name}}</td>
               <td>
                 <v-card-actions>
                   <v-btn outline fab dark small color="cyan" :to="'/edit/'+props.item.id">
                     <v-icon>edit</v-icon>
                   </v-btn>
-                  <v-btn fab dark small color="primary" :to="'/delete/'+props.item.id">
+                  <v-btn fab dark small color="primary" @click="removeData(props.item.id)">
                     <v-icon dark>remove</v-icon>
                   </v-btn>
                 </v-card-actions>
@@ -47,7 +50,7 @@
 export default {
   data: () => ({
     pagination: {
-      sortBy: 'title'
+      sortBy: 'name'
     },
     selected: [],
     headers: [
@@ -55,18 +58,19 @@ export default {
         text: 'name',
         align: 'left',
         sortable: false,
-        value: 'title'
+        value: 'name'
       },
       { text: 'id', value: 'id' },
-      { text: '日期', value: 'date' },
-      { text: '地点', value: 'location' }
+      { text: 'phone', value: 'phone' },
+      { text: 'email', value: 'email' },
+      { text: 'website', value: 'website' }
     ]
   }),
   methods: {
     toggleAll () {
-      console.log(this.selected)
+      // console.log(this.selected)
       if (this.selected.length) this.selected = []
-      else this.selected = this.$store.getters.loadedMeetups.slice()
+      else this.selected = this.$store.getters.loadedUsers.slice()
     },
     changeSort (column) {
       if (this.pagination.sortBy === column) {
@@ -75,12 +79,27 @@ export default {
         this.pagination.sortBy = column
         this.pagination.descending = false
       }
-    }
+    },
+    removeData (id) {
+      var isDelete = window.confirm("是否删除")
+      if (isDelete) {
+        this.$store.dispatch("deleteUser", {
+          id
+        })
+      }
+    },
   },
   computed: {
-    meetups () {
-      return this.$store.getters.loadedMeetups;
+    datas () {
+      return this.$store.getters.loadedUsers;
+    },
+    loading () {
+      return this.$store.getters.loading;
     }
+  },
+
+  created () {
+    this.$store.dispatch('fetchUsersData')
   }
 };
 </script>

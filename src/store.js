@@ -1,6 +1,7 @@
 /* eslint-disable */
 import Vue from "vue"
 import Vuex from "vuex"
+import axios from "axios"
 import createPersistedState from "vuex-persistedstate"
 // import * as Cookies from 'js-cookie'
 
@@ -8,28 +9,10 @@ Vue.use(Vuex)
 
 export const store = new Vuex.Store({
   state: {
-    loadedMeetups: [
-      {
-        imageUrl: "http://ryugaku.myedu.jp/images/chn/sc/pekin.jpg",
-        id: "dsfsadfdfwfew",
-        title: "聚会在北京",
-        date: new Date(),
-        location: "北京",
-        description: "聚会在北京聚会在北京!"
-      },
-      {
-        imageUrl:
-          "https://i.travelapi.com/hotels/1000000/500000/490600/490509/490509_186_z.jpg",
-        id: "wefewfsfdsfdf",
-        title: "聚会在上海",
-        date: new Date(),
-        location: "上海",
-        description: "聚会在上海聚会在上海!"
-      }
-    ],
     user: null,
     loading: false,
-    error: null
+    error: null,
+    users: []
   },
   mutations: {
     /**
@@ -48,9 +31,42 @@ export const store = new Vuex.Store({
     },
     clearError(state) {
       state.error = null
+    },
+    setUsers(state, payload) {
+      state.users = payload
+    },
+    removeUser(state, payload) {
+      state.users = state.users.filter(user => user.id !== payload.id)
     }
   },
   actions: {
+    // API in Actions
+    fetchUsersData({ commit }, getter) {
+      commit("setLoading", true)
+      axios
+        .get("https://jsonplaceholder.typicode.com/users")
+        .then(response => {
+          // console.log(response.data)
+          commit("setUsers", response.data)
+        })
+        .catch(error => commit("setError", error.message))
+      commit("setLoading", false)
+    },
+    deleteUser({ commit }, payload) {
+      console.log('payload.id =',payload.id)
+      commit("setLoading", true)
+      axios
+        .delete(`https://jsonplaceholder.typicode.com/users/${payload.id}`)
+        .then(() => {
+          console.log('axios.delete users =', payload.id)
+          commit("removeUser", {id: payload.id})
+        })
+        .catch(error => {
+          console.log(error)
+          commit("setError", error.message)
+        })
+      commit("setLoading", false)
+    },
     signUserUp({ commit }, payload) {
       commit("setLoading", true)
       commit("clearError")
@@ -94,10 +110,11 @@ export const store = new Vuex.Store({
     }
   },
   getters: {
-    loadedMeetups(state) {
-      return state.loadedMeetups.sort((meetupA, meetupB) => {
-        return meetupA.date > meetupB.date
-      })
+    loadedUsers(state) {
+      // return state.loadedMeetups.sort((meetupA, meetupB) => {
+      //   return meetupA.date > meetupB.date
+      // })
+      return state.users
     },
     featuredMeetups(state, getters) {
       return getters.loadedMeetups.slice(0, 5)
@@ -111,6 +128,9 @@ export const store = new Vuex.Store({
     },
     user(state) {
       return state.user
+    },
+    loading(state) {
+      return state.loading
     }
   },
   plugins: [
