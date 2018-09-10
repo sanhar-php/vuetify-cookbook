@@ -35,6 +35,18 @@ export const store = new Vuex.Store({
     setUsers(state, payload) {
       state.users = payload
     },
+    createUser(state, payload) {
+      state.users.push(payload)
+    },
+    updateUser(state, payload) {
+      state.users = state.users.map(user => {
+        if (user.id === payload.id) {
+          return payload
+        }else {
+          return user
+        }
+      })
+    },
     removeUser(state, payload) {
       state.users = state.users.filter(user => user.id !== payload.id)
     }
@@ -46,23 +58,52 @@ export const store = new Vuex.Store({
       axios
         .get("https://jsonplaceholder.typicode.com/users")
         .then(response => {
-          // console.log(response.data)
+          // console.log("fetchUsersData, company = ", response.data[0].company.name)
           commit("setUsers", response.data)
         })
         .catch(error => commit("setError", error.message))
       commit("setLoading", false)
     },
+    createUser({ commit }, payload) {
+      commit("setLoading", true)
+      axios
+        .post("https://jsonplaceholder.typicode.com/users/")
+        .then(response => {
+          console.log("axios.post user ...", response.data)
+          payload.id = response.data.id
+          commit("createUser", payload)
+        })
+        .catch(error => {
+          console.log('axios.post error', error)
+          commit("setError", error.message)
+        })
+      commit("setLoading", false)
+    },
+    updateUser({ commit }, payload) {
+      commit("setLoading", true)
+      axios
+        .put(`https://jsonplaceholder.typicode.com/users/${payload.id}`)
+        .then(() => {
+          console.log("axios.put user =", payload.id)
+          commit("updateUser", payload)
+        })
+        .catch(error => {
+          console.log('axios.put error', error)
+          commit("setError", error.message)
+        })
+      commit("setLoading", false)
+    },
     deleteUser({ commit }, payload) {
-      console.log('payload.id =',payload.id)
+      // console.log('payload.id =',payload.id)
       commit("setLoading", true)
       axios
         .delete(`https://jsonplaceholder.typicode.com/users/${payload.id}`)
         .then(() => {
-          console.log('axios.delete users =', payload.id)
-          commit("removeUser", {id: payload.id})
+          console.log("axios.delete users =", payload.id)
+          commit("removeUser", { id: payload.id })
         })
         .catch(error => {
-          console.log(error)
+          console.log('axios.delete error', error)
           commit("setError", error.message)
         })
       commit("setLoading", false)
@@ -111,21 +152,19 @@ export const store = new Vuex.Store({
   },
   getters: {
     loadedUsers(state) {
-      // return state.loadedMeetups.sort((meetupA, meetupB) => {
-      //   return meetupA.date > meetupB.date
-      // })
       return state.users
+    },
+    loadedUser(state) {
+      return id => {
+        return state.users.find(user => {
+          return user.id === id
+        })
+      }
     },
     featuredMeetups(state, getters) {
       return getters.loadedMeetups.slice(0, 5)
     },
-    loadedMeetup(state) {
-      return meetupId => {
-        return state.loadedMeetups.find(meetup => {
-          return meetup.id === meetupId
-        })
-      }
-    },
+
     user(state) {
       return state.user
     },
