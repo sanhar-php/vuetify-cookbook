@@ -42,7 +42,7 @@ export const store = new Vuex.Store({
       state.users = state.users.map(user => {
         if (user.id === payload.id) {
           return payload
-        }else {
+        } else {
           return user
         }
       })
@@ -55,6 +55,7 @@ export const store = new Vuex.Store({
     // API in Actions
     fetchUsersData({ commit }, getter) {
       commit("setLoading", true)
+      commit("clearError")
       axios
         .get("https://jsonplaceholder.typicode.com/users")
         .then(response => {
@@ -74,7 +75,7 @@ export const store = new Vuex.Store({
           commit("createUser", payload)
         })
         .catch(error => {
-          console.log('axios.post error', error)
+          console.log("axios.post error", error)
           commit("setError", error.message)
         })
       commit("setLoading", false)
@@ -88,7 +89,7 @@ export const store = new Vuex.Store({
           commit("updateUser", payload)
         })
         .catch(error => {
-          console.log('axios.put error', error)
+          console.log("axios.put error", error)
           commit("setError", error.message)
         })
       commit("setLoading", false)
@@ -103,7 +104,7 @@ export const store = new Vuex.Store({
           commit("removeUser", { id: payload.id })
         })
         .catch(error => {
-          console.log('axios.delete error', error)
+          console.log("axios.delete error", error)
           commit("setError", error.message)
         })
       commit("setLoading", false)
@@ -161,15 +162,14 @@ export const store = new Vuex.Store({
         })
       }
     },
-    featuredMeetups(state, getters) {
-      return getters.loadedMeetups.slice(0, 5)
-    },
-
     user(state) {
       return state.user
     },
     loading(state) {
       return state.loading
+    },
+    error(state) {
+      return state.error
     }
   },
   plugins: [

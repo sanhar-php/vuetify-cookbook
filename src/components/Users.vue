@@ -13,10 +13,10 @@
             <v-container grid-list-md>
               <v-layout wrap>
                 <v-flex v-for="field in columns" :key="field.text" v-show="!field.pk" xs12 sm6 md4>
-                  <v-text-field v-model="dialogData[field.value]" :label="field.text" required></v-text-field>
+                  <v-text-field v-model="dialogData[field.value]" :rules="field.rules" :label="field.text" required></v-text-field>
                 </v-flex>
                 <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="dialogData.company.name" label="Company" required></v-text-field>
+                  <v-text-field v-model="dialogData.company.name" :rules="[rules.required]" label="Company"></v-text-field>
                 </v-flex>
               </v-layout>
             </v-container>
@@ -30,10 +30,16 @@
       </v-dialog>
     </div>
 
+    <!-- 网络请求进度条 -->
+    <v-layout>
+      <v-flex xs12 class="text-xs-center">
+        <v-progress-circular indeterminate class="primary--text" :width="7" :size="70" v-if="loading"></v-progress-circular>
+      </v-flex>
+    </v-layout>
     <!-- 数据表显示: data-table -->
-    <v-layout row wrap>
+    <v-layout row wrap v-if="!loading">
       <v-flex xs12 lg12>
-        <span class="text-xs-center" v-if="loading">Loading…</span>
+        <span class="text-xs-center error--text" v-if="error">{{ error }}</span>
         <h3 class="primary--text text-xs-center">User List</h3>
         <!-- https://vuetifyjs.com/zh-Hans/components/data-tables -->
         <v-data-table v-model="selected" :headers="columns" :items="datas" hide-actions :pagination.sync="pagination" select-all item-key="name" class="text-xs-center">
@@ -89,11 +95,19 @@ export default {
     dialog: false,
     dialogTitle: "dialog",
     dialogAction: "Action",
-    dialogData: {company:{}, address:{}},
+    dialogData: { company: {}, address: {} },
     pagination: {
       sortBy: 'name'
     },
     selected: [],
+    rules: {
+      required: value => !!value || 'Required.',
+      counter: value => value.length <= 20 || 'Max 20 characters',
+      email: value => {
+        const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        return pattern.test(value) || 'Invalid e-mail.'
+      }
+    },
     // define table columns
     columns: [
       {
@@ -104,7 +118,11 @@ export default {
       },
       { text: 'id', value: 'id', pk: true },
       { text: 'phone', value: 'phone' },
-      { text: 'email', value: 'email' },
+      {        text: 'email', value: 'email', rules: [value => {
+          const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+          return pattern.test(value) || 'Invalid e-mail.'
+        }]
+      },
       { text: 'website', value: 'website' }
     ]
   }),
@@ -125,7 +143,7 @@ export default {
     addData () {
       this.dialogTitle = 'Add User'
       this.dialogAction = 'Save'
-      this.dialogData = {company:{}, address:{}}
+      this.dialogData = { company: {}, address: {} }
       this.dialog = true
     },
     editData (id) {
@@ -143,12 +161,13 @@ export default {
      */
     saveOrUpdateData (action) {
       this.dialog = false
+
       // console.log(this.dialogData)
       if (action === 'Save') {
         console.log('saving ...')
         console.log('company =', this.dialogData.company.name)
         this.$store.dispatch('createUser', this.dialogData)
-      } else if(action === 'Update') {
+      } else if (action === 'Update') {
         console.log('updating ...')
         this.$store.dispatch('updateUser', this.dialogData)
       }
@@ -168,6 +187,9 @@ export default {
     },
     loading () {
       return this.$store.getters.loading;
+    },
+    error () {
+      return this.$store.getters.error;
     }
   },
 
