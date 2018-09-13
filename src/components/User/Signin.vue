@@ -52,7 +52,7 @@ export default {
   },
   computed: {
     user () {
-      return this.$store.getters.user;
+      return this.$store.getters["oauth2/user"];
     }
   },
   watch: {
@@ -69,7 +69,7 @@ export default {
       //   password: this.password,
       //   confirmPassword: this.confirmPassword
       // });
-      this.$store.dispatch("signUserIn", {
+      this.$store.dispatch("oauth2/signUserIn", {
         email: this.email,
         password: this.password
       });

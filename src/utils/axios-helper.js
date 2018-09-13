@@ -1,7 +1,7 @@
 const axios = require("axios")
 
 if (process.env.NODE_ENV == "development") {
-  var hostname = ``
+  var hostname = `http://localhost:3000`
 } else {
   var hostname = ``
 }
@@ -12,16 +12,16 @@ if (process.env.NODE_ENV == "development") {
  * @param {*} params
  * @param {String} method HTTP Method, get as default
  */
-export const use = (url, params, method = "get") =>
+const use = (url, params, method = "get") =>
   axios({
     method: method,
     url: `${hostname}` + url,
     params: params
   })
 
-export const doGet = (url, getData) => use(url, getData)
+const doGet = (url, getData) => use(url, getData)
 
-export const doPost = (url, postData) =>
+const doPost = (url, postData) =>
   axios({
     method: "post",
     url: `${hostname}` + url,
@@ -31,6 +31,14 @@ export const doPost = (url, postData) =>
     }
   })
 
-export const doPut = (url, putData) => use(url, putData, "put")
+const doPut = (url, putData) => use(url, putData, "put")
 
-export const doDelete = (url, getData) => use(url, getData, "delete")
+const doDelete = (url, getData) => use(url, getData, "delete")
+
+
+export default {
+  doGet,
+  doPost,
+  doPut,
+  doDelete
+}

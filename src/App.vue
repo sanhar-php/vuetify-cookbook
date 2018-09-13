@@ -149,8 +149,8 @@ export default {
           ...menuItems,
           {
             icon: "supervisor_account",
-            text: "Admin",
-            link: "/admin"
+            text: "Users",
+            link: "/users"
           },
           { icon: "mdi-account-box", text: "Profile", link: "/profile" }
         ];
@@ -158,15 +158,16 @@ export default {
       return menuItems;
     },
     userIsAuthenticated () {
+      // console.log('oauth2', this.$store.getters["oauth2/user"])
       return (
-        this.$store.getters.user !== null &&
-        this.$store.getters.user !== undefined
+        this.$store.getters["oauth2/user"] !== null &&
+        this.$store.getters["oauth2/user"] !== undefined
       );
     }
   },
   methods: {
     onLogout () {
-      this.$store.dispatch("logout");
+      this.$store.dispatch("oauth2/logout");
     }
   }
 };
