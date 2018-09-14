@@ -3,10 +3,7 @@
     <v-slide-y-transition mode="out-in">
       <v-layout>
         <v-flex xs12>
-          <v-data-table
-            :headers="headers"
-            :items="items"
-          >
+          <v-data-table :headers="headers" :items="items">
             <template slot="items" slot-scope="props">
               <td>{{ props.item.name }}</td>
               <td class="text-xs-right">{{ props.item.calories }}</td>

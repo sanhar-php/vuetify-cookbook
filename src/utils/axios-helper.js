@@ -19,7 +19,8 @@ const use = (url, params, method = "get") =>
     params: params
   })
 
-const doGet = (url, getData) => use(url, getData)
+const doGet = (url, params) => use(url, params)
+const doDelete = (url, params) => use(url, params, "delete")
 
 const doPost = (url, postData) =>
   axios({
@@ -27,14 +28,19 @@ const doPost = (url, postData) =>
     url: `${hostname}` + url,
     data: postData,
     headers: {
-      "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+      "Content-Type": "application/json; charset=UTF-8"
     }
   })
 
-const doPut = (url, putData) => use(url, putData, "put")
-
-const doDelete = (url, getData) => use(url, getData, "delete")
-
+const doPut = (url, putData) =>
+  axios({
+    method: "put",
+    url: `${hostname}` + url,
+    data: putData,
+    headers: {
+      "Content-Type": "application/json; charset=UTF-8"
+    }
+  })
 
 export default {
   doGet,

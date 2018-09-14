@@ -5,10 +5,10 @@ import "vuetify/dist/vuetify.min.css";
 
 Vue.use(Vuetify, {
   theme: {
-    primary: colors.cyan.darken2,
+    primary: colors.lightBlue.darken3,
     secondary: colors.grey.lighten2,
     accent: colors.cyan.accent1,
-    error: colors.pink.accent2,
+    error: colors.red.accent3,
     info: colors.cyan.base,
     success: colors.green.base,
     warning: colors.orange.base

@@ -15,9 +15,6 @@
                 <v-flex v-for="field in columns" :key="field.text" v-show="!field.pk" xs12 sm6 md4>
                   <v-text-field v-model="dialogData[field.value]" :rules="field.rules" :label="field.text" required></v-text-field>
                 </v-flex>
-                <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="dialogData.company.name" :rules="[rules.required]" label="Company"></v-text-field>
-                </v-flex>
               </v-layout>
             </v-container>
           </v-card-text>
@@ -40,9 +37,9 @@
     <v-layout row wrap v-if="!loading">
       <v-flex xs12 lg12>
         <span class="text-xs-center error--text" v-if="error">{{ error }}</span>
-        <h3 class="primary--text text-xs-center">User List</h3>
+        <h3 class="primary--text text-xs-center">Product List</h3>
         <!-- https://vuetifyjs.com/zh-Hans/components/data-tables -->
-        <v-data-table v-model="selected" :headers="columns" :items="datas" :pagination.sync="pagination" select-all item-key="name" class="text-xs-center">
+        <v-data-table v-model="selected" :headers="columns" :items="datas" :pagination.sync="pagination" select-all item-key="id" class="text-xs-center">
           <!-- table-headers -->
           <template slot="headers" slot-scope="props">
             <tr>
@@ -53,10 +50,9 @@
                 <v-icon small>arrow_upward</v-icon>
                 {{ header.text }}
               </th>
-              <th>Company</th>
               <th>
                 操作
-                <v-btn outline fab dark small color="cyan" @click="addData()">
+                <v-btn outline fab dark small color="cyan" @click="addDialog()">
                   <v-icon>add</v-icon>
                 </v-btn>
               </th>
@@ -69,10 +65,9 @@
                 <v-checkbox :input-value="props.selected" primary hide-details></v-checkbox>
               </td>
               <td v-for="header in columns" :key="header.id">{{ props.item[header.value]}}</td>
-              <td>{{ props.item.company.name}}</td>
               <td>
                 <v-card-actions>
-                  <v-btn outline fab dark small color="cyan" @click="editData(props.item.id)">
+                  <v-btn outline fab dark small color="cyan" @click="editDialog(props.item.id)">
                     <v-icon>edit</v-icon>
                   </v-btn>
                   <v-btn fab dark small color="primary" @click="removeData(props.item.id)">
@@ -90,6 +85,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   data: () => ({
     dialog: false,
@@ -111,19 +107,14 @@ export default {
     // define table columns
     columns: [
       {
-        text: 'name',
+        text: 'title',
         align: 'left',
         sortable: false,
-        value: 'name'
+        value: 'title'
       },
       { text: 'id', value: 'id', pk: true },
-      { text: 'phone', value: 'phone' },
-      {        text: 'email', value: 'email', rules: [value => {
-          const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-          return pattern.test(value) || 'Invalid e-mail.'
-        }]
-      },
-      { text: 'website', value: 'website' }
+      { text: 'price', value: 'price' },
+      { text: 'inventory', value: 'inventory' }
     ]
   }),
   methods: {
@@ -140,21 +131,22 @@ export default {
         this.pagination.descending = false
       }
     },
-    addData () {
-      this.dialogTitle = 'Add User'
+    addDialog () {
+      this.dialogTitle = 'Add Products'
       this.dialogAction = 'Save'
-      this.dialogData = { company: {}, address: {} }
+      this.dialogData = {}
       this.dialog = true
     },
-    editData (id) {
+    editDialog (id) {
       this.dialog = true
-      this.dialogTitle = 'Edit User'
+      this.dialogTitle = 'Edit Products'
       this.dialogAction = 'Update'
-      //load user from store
-      let user = this.$store.getters.loadedUser(id)
+      //load data from store
+      let data = this.$store.getters['products/loadedProduct'](id)
       // clone object
-      Object.assign(this.dialogData, user)
-      console.log('updating data =', this.dialogData)
+      this.dialogData = {}
+      Object.assign(this.dialogData, data)
+      // console.log('updating data =', this.dialogData)
     },
     /**
      * close dialog and change data
@@ -165,26 +157,28 @@ export default {
       // console.log(this.dialogData)
       if (action === 'Save') {
         console.log('saving ...')
-        console.log('company =', this.dialogData.company.name)
-        this.$store.dispatch('createUser', this.dialogData)
+        this.$store.dispatch('products/create', this.dialogData)
       } else if (action === 'Update') {
         console.log('updating ...')
-        this.$store.dispatch('updateUser', this.dialogData)
+        this.$store.dispatch('products/update', this.dialogData)
       }
     },
     removeData (id) {
       var isDelete = window.confirm("是否删除")
       if (isDelete) {
-        this.$store.dispatch("deleteUser", {
+        this.$store.dispatch("products/delete", {
           id
         })
       }
     },
   },
   computed: {
-    datas () {
-      return this.$store.getters.loadedUsers;
-    },
+    ...mapState({
+      datas: state => state.products.all
+    }),
+    // datas () {
+    //   return this.$store.getters('products/all');
+    // },
     loading () {
       return this.$store.getters.loading;
     },
@@ -194,7 +188,7 @@ export default {
   },
 
   created () {
-    this.$store.dispatch('fetchUsersData')
+    this.$store.dispatch('products/getAll')
   }
 };
 </script>

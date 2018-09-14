@@ -138,8 +138,10 @@ export default {
           "icon-alt": "keyboard_arrow_down",
           text: "Other Samples",
           model: true,
-          children: [{ icon: "mdi-web", text: "Cross Domain", link: "/baidu" }]
+          children: [{ icon: "mdi-web", text: "Cross Domain", link: "/baidu" },
+          { icon: "mdi-cart", text: "Vuex - Products", link: "/products" }]
         },
+        // 一级菜单
         { icon: "face", text: "Sign up", link: "/signup" },
         { icon: "lock_open", text: "Sign in", link: "/signin" },
         { icon: "help", text: "Help", link: "" }

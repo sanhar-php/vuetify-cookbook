@@ -1,6 +1,6 @@
 import store from './store'
 export default (to, from, next) => {
-    if (store.ouath2.getters.user) {
+    if (store.getters["oauth2/user"]) {
         next()
     } else {
         next('/signin')
