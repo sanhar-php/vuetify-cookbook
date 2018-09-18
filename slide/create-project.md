@@ -62,3 +62,56 @@ added 1 package from 1 contributor in 11.15s
 - src/App.vue
 - src/router.js
 - src/store.js
+
+```
+├── README.md
+├── babel.config.js
+├── node_modules
+├── package-lock.json
+├── package.json
+├── public
+│   ├── favicon.ico
+│   └── index.html
+├── slide
+├── src
+│   ├── App.vue
+│   ├── assets
+│   │   └── logo.png
+│   ├── components
+│   │   └── HelloWorld.vue
+│   ├── main.js
+│   ├── router.js
+│   ├── store.js
+│   └── views
+│       ├── About.vue
+│       └── Home.vue
+└── tests
+    └── unit
+        └── HelloWorld.spec.js
+```
+
+### mock by json-server
+
+- [How to Use Mock Data in Vue Apps](https://tahazsh.com/use-mock-data-in-vue) 通过 vuex 实现数据显示和获取， 逻辑很清晰
+- [Fake Online REST API](https://jsonplaceholder.typicode.com/)
+
+## 单元测试
+### Jest 运行配置
+
+```json
+...
+    "transformIgnorePatterns": [
+      "node_modules/(?!(babel-jest|jest-vue-preprocessor)/)"
+    ],
+    "moduleNameMapper": {
+
+```
+
+```bash
+jest --clearCache # clear cache
+npm run test:unit
+```
+
+### Vuex Actions
+
+- https://sinonjs.org/ `npm install sinon --save-dev`

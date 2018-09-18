@@ -1,3 +1,5 @@
+const debug = require("debug")("vuex:products")
+
 import axios from "../../utils/axios-helper"
 
 // initial state
@@ -34,10 +36,13 @@ const actions = {
     axios
       .doGet(`${state.uri}`)
       .then(response => {
-        // console.log("products/getAll()", response.data[0])
+        debug("products/getAll()", response.data[0])
         commit("setAll", response.data)
       })
-      .catch(error => commit("setError", error.message, { root: true }))
+      .catch(error => {
+        commit("setError", error.message, { root: true })
+        debug('error=%o',error)
+      })
     commit("setLoading", false, { root: true })
   },
   create({ commit }, payload) {
